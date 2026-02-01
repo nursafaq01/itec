@@ -3,32 +3,24 @@
 
 <head>
     <title>IT Enthusiast Community | Hub Teknologi Indonesia</title>
-<meta name="description" content="Gabung dengan IT Enthusiast Community, tempat belajar jaringan, cybersecurity, dan IT secara mendalam bagi para profesional dan pemula di Indonesia.">
-<meta name="keywords" content="IT Enthusiast, Komunitas IT, Networking, MikroTik, Cisco, Cybersecurity Indonesia">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HGSEJ6G5CM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HGSEJ6G5CM');
-</script>
+    <meta name="description" content="Gabung dengan IT Enthusiast Community, tempat belajar jaringan, cybersecurity, dan IT secara mendalam bagi para profesional dan pemula di Indonesia.">
+    <meta name="keywords" content="IT Enthusiast, Komunitas IT, Networking, MikroTik, Cisco, Cybersecurity Indonesia">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGSEJ6G5CM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HGSEJ6G5CM');
+    </script>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="icon" type="image/x-icon" href="logo itec.jpg">
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -38,11 +30,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            light: '#F1F5F9',    /* Biru es sangat muda */
-                            primary: '#0369A1',  /* Biru Ocean */
-                            secondary: '#0EA5E9',/* Biru Cerah */
-                            accent: '#22D3EE',   /* Cyan */
-                            dark: '#0F172A'      /* Slate 900 */
+                            light: '#F1F5F9',
+                            primary: '#0369A1',
+                            secondary: '#0EA5E9',
+                            accent: '#22D3EE',
+                            dark: '#0F172A'
                         }
                     },
                     fontFamily: {
@@ -55,23 +47,18 @@
     </script>
 
     <style>
-        /* Base Background */
         body {
             background-color: #F1F5F9;
             background-image: radial-gradient(at 0% 0%, rgba(3, 105, 161, 0.04) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(34, 211, 238, 0.04) 0px, transparent 50%);
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        /* Dark Mode Background */
         .dark body {
             background-color: #0F172A;
             background-image: radial-gradient(at 0% 0%, rgba(3, 105, 161, 0.15) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%);
             color: #F1F5F9;
         }
-
-        /* Glassmorphism yang Halus */
         .glass-ui {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
@@ -79,516 +66,194 @@
             border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
         }
-
         .dark .glass-ui {
             background: rgba(30, 41, 59, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.3);
         }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hover-card {
-            transition: all 0.3s ease;
-        }
-
-        .hover-card:hover {
-            transform: translateY(-5px);
-            border-color: #0369A1;
-            background: #ffffff;
-        }
-
-        .dark .hover-card:hover {
-            background: #1E293B;
-            border-color: #0EA5E9;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #BAE6FD;
-            border-radius: 10px;
-        }
-
-        .dark ::-webkit-scrollbar-thumb {
-            background: #334155;
-        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .hover-card { transition: all 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); border-color: #0369A1; background: #ffffff; }
+        .dark .hover-card:hover { background: #1E293B; border-color: #0EA5E9; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #BAE6FD; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
     </style>
 </head>
 
 <body class="font-sans antialiased text-slate-900 dark:text-slate-100">
 
-    <!-- Navigasi -->
     <nav class="fixed top-0 w-full z-[100] px-4 py-4 md:px-8" id="navbar">
         <div class="max-w-6xl mx-auto flex justify-between items-center glass-ui rounded-2xl px-6 py-2.5">
-            <!-- Logo Section -->
             <div class="flex items-center gap-3">
-                <div
-                    class="w-9 h-9 bg-brand-primary rounded-lg flex items-center justify-center text-white shadow-md overflow-hidden shrink-0">
-                    <img src="logo itec.jpg" alt="Logo" class="w-full h-full object-cover"
-                        onerror="this.src='https://via.placeholder.com/100/0369A1/FFFFFF?text=IT'">
+                <div class="w-9 h-9 bg-brand-primary rounded-lg flex items-center justify-center text-white shadow-md overflow-hidden shrink-0">
+                    <img src="logo itec.jpg" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/100/0369A1/FFFFFF?text=IT'">
                 </div>
                 <div class="flex flex-col">
-                    <span
-                        class="font-heading text-sm md:text-base font-semibold tracking-tight leading-none text-brand-dark dark:text-white">IT
-                        Enthusiast Community</span>
-                    <span
-                        class="text-[9px] uppercase font-bold tracking-[0.2em] text-brand-primary dark:text-brand-accent mt-1">Indonesia
-                        Hub</span>
+                    <span class="font-heading text-sm md:text-base font-semibold text-brand-dark dark:text-white">IT Enthusiast Community</span>
+                    <span class="text-[9px] uppercase font-bold tracking-[0.2em] text-brand-primary dark:text-brand-accent">Indonesia Hub</span>
                 </div>
             </div>
 
-            <!-- Desktop Links & Toggle -->
             <div class="hidden lg:flex items-center gap-8">
-                <div
-                    class="flex gap-8 text-[11px] font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
-                    <a href="#home"
-                        class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Home</a>
-                    <a href="#focus"
-                        class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Fokus</a>
-                    <a href="#training"
-                        class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Training</a>
-                    <a href="#materi"
-                        class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Materi</a>
+                <div class="flex gap-8 text-[11px] font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                    <a href="#home" class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Home</a>
+                    <a href="#focus" class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Fokus</a>
+                    <a href="#training" class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Training</a>
+                    <a href="#materi" class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Materi</a>
+                    <a href="#merchandise" class="hover:text-brand-primary dark:hover:text-brand-accent transition-colors">Merchandise</a>
                 </div>
-
-                <!-- Dark Mode Toggle Desktop -->
-                <button id="dark-toggle"
-                    class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 hover:scale-110 transition-all">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-
-                <a href="#join"
-                    class="bg-brand-primary text-white px-5 py-2 rounded-xl text-[10px] font-bold hover:bg-brand-dark transition-all shadow-lg shadow-blue-500/10">
-                    JOIN COMMUNITY
-                </a>
+                <button id="dark-toggle" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block"></i></button>
+                <a href="#join" class="bg-brand-primary text-white px-5 py-2 rounded-xl text-[10px] font-bold">JOIN COMMUNITY</a>
             </div>
-
-            <!-- Mobile Toggle -->
-            <div class="flex items-center gap-2 lg:hidden">
-                <button id="dark-toggle-mobile"
-                    class="w-10 h-10 flex items-center justify-center rounded-xl text-slate-600 dark:text-amber-400">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-                <button id="menu-btn" class="text-brand-primary dark:text-brand-accent p-2">
-                    <i class="fas fa-bars-staggered text-xl"></i>
-                </button>
+            
+            <div class="flex items-center lg:hidden">
+                <button id="menu-btn" class="text-brand-primary dark:text-brand-accent p-2"><i class="fas fa-bars-staggered text-xl"></i></button>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden flex-col mt-2 glass-ui rounded-2xl p-5 gap-4 lg:hidden shadow-xl">
-            <a href="#home"
-                class="font-semibold text-slate-700 dark:text-slate-200 text-sm p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Beranda</a>
-            <a href="#focus"
-                class="font-semibold text-slate-700 dark:text-slate-200 text-sm p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Bidang
-                Fokus</a>
-            <a href="#training"
-                class="font-semibold text-slate-700 dark:text-slate-200 text-sm p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Portal
-                Training</a>
-            <a href="#materi"
-                class="font-semibold text-slate-700 dark:text-slate-200 text-sm p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Materi
-                IT</a>
-            <a href="#join" class="bg-brand-primary text-white text-center py-3 rounded-xl font-bold text-sm">Gabung
-                Sekarang</a>
+        <div id="mobile-menu" class="hidden flex-col mt-2 glass-ui rounded-2xl p-5 gap-4 lg:hidden">
+            <a href="#home" class="font-semibold text-sm">Beranda</a>
+            <a href="#materi" class="font-semibold text-sm">Materi IT</a>
+            <a href="#merchandise" class="font-semibold text-sm">Merchandise</a>
+            <a href="#join" class="bg-brand-primary text-white text-center py-3 rounded-xl font-bold">Gabung Sekarang</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-16 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div
-                class="reveal inline-block px-4 py-1 rounded-full bg-blue-100/50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-brand-primary dark:text-brand-accent text-[10px] font-bold tracking-widest mb-8">
-                <i class="fas fa-microchip mr-2"></i> PUSAT KOLABORASI IT NASIONAL
-            </div>
-            <h1
-                class="reveal font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark dark:text-white leading-tight mb-6">
-                IT Enthusiast <span class="text-brand-primary dark:text-brand-secondary">Community</span>
+    <section id="home" class="pt-32 pb-16 md:pt-48 px-6 text-center">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="reveal font-heading text-3xl md:text-6xl font-bold mb-6">
+                IT Enthusiast <span class="text-brand-primary">Community</span>
             </h1>
-            <p
-                class="reveal text-slate-500 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-                Komunitas ini didirikan pada tahun 2023 sebagai Platform kolaborasi ahli <span
-                    class="text-brand-dark dark:text-slate-200 font-semibold">Networking</span>,
-                <span class="text-brand-dark dark:text-slate-200 font-semibold">Cyber Security</span>, dan
-                <span class="text-brand-dark dark:text-slate-200 font-semibold">AI</span> dengan 2500+ Member aktif.
-            </p>
-
-            <!-- Statistics Card -->
-            <div class="reveal flex justify-center mb-16">
-                <div
-                    class="glass-ui p-8 md:p-12 rounded-[2.5rem] inline-flex flex-col items-center shadow-xl shadow-blue-500/5 border border-white">
-                    <div
-                        class="text-5xl md:text-7xl font-bold text-brand-primary dark:text-brand-accent tracking-tighter">
-                        2500+</div>
-                    <div class="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-brand-secondary mt-2">
-                        Anggota Aktif</div>
-                    <p
-                        class="text-slate-400 dark:text-slate-500 text-[9px] font-semibold mt-3 uppercase tracking-wider">
-                        Menghubungkan Engineer di Seluruh Indonesia</p>
-                </div>
-            </div>
-
-            <div class="reveal flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-                <a href="#training"
-                    class="w-full sm:w-auto bg-brand-primary text-white font-semibold px-10 py-3.5 rounded-2xl hover:bg-brand-dark transition-all shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2">
-                    Pusat Training <i class="fas fa-graduation-cap text-xs"></i>
-                </a>
-                <a href="#materi"
-                    class="w-full sm:w-auto glass-ui text-brand-dark dark:text-white font-semibold px-10 py-3.5 rounded-2xl hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                    Materi Gratis <i class="fas fa-folder-open text-xs"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Deco Background -->
-        <div class="absolute top-10 right-[-10%] opacity-5 dark:opacity-10 animate-float hidden lg:block">
-            <i class="fas fa-shield-halved text-[20rem] text-brand-primary dark:text-brand-accent"></i>
-        </div>
-    </section>
-
-    <!-- Expertise Section -->
-    <section id="focus" class="py-16 md:py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-heading text-2xl md:text-3xl font-bold text-brand-dark dark:text-white mb-4">Bidang
-                    Fokus</h2>
-                <div class="h-1 w-12 bg-brand-primary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Networking -->
-                <div class="reveal glass-ui p-8 rounded-3xl hover-card border-b-4 border-brand-primary">
-                    <div
-                        class="w-12 h-12 bg-blue-50 dark:bg-blue-900/40 text-brand-primary dark:text-brand-accent rounded-xl flex items-center justify-center text-xl mb-6">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-dark dark:text-white mb-3">Networking</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">MikroTik, Cisco, Juniper,
-                        SD-WAN, dan pengelolaan infrastruktur Cloud.</p>
-                </div>
-
-                <!-- Cyber Security -->
-                <div class="reveal glass-ui p-8 rounded-3xl hover-card border-b-4 border-brand-accent">
-                    <div
-                        class="w-12 h-12 bg-cyan-50 dark:bg-cyan-900/40 text-brand-primary dark:text-brand-accent rounded-xl flex items-center justify-center text-xl mb-6">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-dark dark:text-white mb-3">Cyber Security</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Pentesting, Web Security,
-                        Malware Analysis, hingga operasional Red & Blue Team.</p>
-                </div>
-
-                <!-- AI -->
-                <div class="reveal glass-ui p-8 rounded-3xl hover-card border-b-4 border-indigo-500">
-                    <div
-                        class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center text-xl mb-6">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-dark dark:text-white mb-3">AI & Cloud</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Machine Learning, Otomasi
-                        Jaringan, dan implementasi AI pada sistem Cloud.</p>
-                </div>
+            <p class="reveal text-slate-500 max-w-2xl mx-auto mb-12">Platform kolaborasi Networking, Cyber Security, dan AI dengan 2500+ Member aktif.</p>
+            <div class="reveal flex justify-center gap-4">
+                <a href="#training" class="bg-brand-primary text-white px-8 py-3 rounded-2xl font-bold shadow-xl">Pusat Training</a>
             </div>
         </div>
     </section>
 
-    <!-- Training Portal Section -->
-    <section id="training" class="py-16 md:py-24 px-6 relative">
-        <div class="max-w-6xl mx-auto">
-            <div
-                class="reveal glass-ui rounded-[2.5rem] p-8 md:p-16 border border-white shadow-2xl overflow-hidden flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-3/5 text-center md:text-left">
-                    <div
-                        class="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-brand-primary dark:text-brand-accent text-[10px] font-bold uppercase tracking-wider mb-6">
-                        Official Learning Hub
+    <section id="focus" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="reveal glass-ui p-8 rounded-3xl hover-card border-b-4 border-brand-primary">
+                <i class="fas fa-network-wired text-brand-primary text-xl mb-4"></i>
+                <h3 class="font-bold mb-2">Networking</h3>
+                <p class="text-sm text-slate-500">MikroTik, Cisco, dan Cloud Infrastructure.</p>
+            </div>
+            <div class="reveal glass-ui p-8 rounded-3xl hover-card border-b-4 border-brand-accent">
+                <i class="fas fa-user-shield text-brand-accent text-xl mb-4"></i>
+                <h3 class="font-bold mb-2">Cyber Security</h3>
+                <p class="text-sm text-slate-500">Pentesting dan Red/Blue Team operations.</p>
+            </div>
+            <div class="reveal glass-ui p-8 rounded-3xl hover-card border-b-4 border-indigo-500">
+                <i class="fas fa-microchip text-indigo-500 text-xl mb-4"></i>
+                <h3 class="font-bold mb-2">AI & Cloud</h3>
+                <p class="text-sm text-slate-500">Automation dan Machine Learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="training" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto glass-ui rounded-[2.5rem] p-8 md:p-16 flex flex-col md:row items-center gap-8">
+            <div class="text-center md:text-left">
+                <h2 class="text-3xl font-bold mb-4">ITEC Training Center</h2>
+                <p class="text-slate-500 mb-8">Akses bootcamp intensif dan sertifikasi IT resmi.</p>
+                <a href="https://training.it-enthusiast.com" class="bg-brand-primary text-white px-8 py-4 rounded-2xl font-bold inline-block">MASUK PORTAL</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="materi" class="py-16 px-6">
+        <div class="max-w-4xl mx-auto glass-ui p-8 rounded-[3rem] text-center">
+            <i class="fab fa-google-drive text-brand-primary text-4xl mb-6"></i>
+            <h3 class="text-2xl font-bold mb-4">Repository ITEC</h3>
+            <p class="text-slate-500 mb-8">Ratusan modul riset teknis dan virtual lab gratis.</p>
+            <a href="https://drive.google.com/drive/folders/1Owcx8GiqA0IBj8JUUFs4RqbO1tUKIkRO" class="bg-brand-primary text-white px-10 py-4 rounded-2xl font-bold inline-block">BUKA GOOGLE DRIVE</a>
+        </div>
+    </section>
+
+    <section id="merchandise" class="py-16 bg-[#0F172A] text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4">Official Merchandise</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Dukung komunitas IT Enthusiast dengan produk resmi. One Community, One Code.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+                <div class="group bg-[#1e293b] rounded-2xl border border-gray-700 overflow-hidden hover:border-cyan-500 transition-all">
+                    <div class="aspect-square bg-white"><img src="img/kaos-hitam.jpg" class="w-full h-full object-cover"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">T-Shirt Community Edition</h3>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-cyan-400 font-bold">Rp 100.000</span>
+                            <a href="GANTI_LINK_DRIVE_ANDA" class="px-5 py-2 bg-cyan-600 rounded-lg font-bold">Pesan Sekarang</a>
+                        </div>
                     </div>
-                    <h2
-                        class="font-heading text-2xl md:text-4xl font-bold text-brand-dark dark:text-white leading-tight mb-6">
-                        ITEC <span
-                            class="text-brand-primary underline decoration-brand-accent decoration-2 underline-offset-4">Training
-                            Center</span>
-                    </h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-10">
-                        Akses portal pelatihan resmi kami untuk mendapatkan materi terstruktur, bootcamp intensif, dan
-                        sertifikasi keahlian IT yang diakui.
-                    </p>
-                    <a href="https://training.it-enthusiast.com" target="_blank"
-                        class="inline-flex items-center gap-3 bg-brand-primary text-white font-bold px-8 py-4 rounded-2xl hover:bg-brand-dark transition-all shadow-xl text-sm">
-                        MASUK PORTAL TRAINING <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
                 </div>
-                <div class="md:w-2/5 flex justify-center">
-                    <div
-                        class="w-full max-w-xs aspect-square bg-brand-primary/5 dark:bg-brand-primary/10 rounded-[2.5rem] flex items-center justify-center animate-float">
-                        <i class="fas fa-laptop-code text-[8rem] text-brand-primary/10 dark:text-brand-accent/20"></i>
+                <div class="group bg-[#1e293b] rounded-2xl border border-gray-700 overflow-hidden hover:border-cyan-500 transition-all">
+                    <div class="aspect-square bg-white"><img src="img/polo-shirt.jpg" class="w-full h-full object-cover"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Polo Shirt Professional</h3>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-cyan-400 font-bold">Rp 125.000</span>
+                            <a href="GANTI_LINK_DRIVE_ANDA" class="px-5 py-2 bg-cyan-600 rounded-lg font-bold">Pesan Sekarang</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Materi IT Section -->
-    <section id="materi" class="py-16 md:py-24 px-6">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="mb-12 reveal">
-                <h2 class="font-heading text-2xl md:text-3xl font-bold text-brand-dark dark:text-white">Resource Center
-                </h2>
-                <p class="text-slate-500 dark:text-slate-400 text-sm italic mt-2 font-medium">Satu pintu akses untuk
-                    seluruh riset Siber, Jaringan, AI, dan Cloud.</p>
+    <section id="leadership" class="py-16 px-6 text-center">
+        <h2 class="text-2xl font-bold mb-12">The Leadership</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div class="glass-ui p-10 rounded-[2.5rem] border-t-4 border-brand-primary">
+                <i class="fas fa-user-tie text-4xl mb-4"></i>
+                <h4 class="font-bold">Moch Nursafaq #MTCINE</h4>
+                <p class="text-brand-primary text-[10px] font-bold uppercase">Founder ITEC</p>
             </div>
-
-            <div
-                class="reveal max-w-4xl mx-auto glass-ui p-8 md:p-14 rounded-[3rem] border border-white shadow-xl flex flex-col items-center hover-card">
-                <div
-                    class="w-16 h-16 bg-brand-primary text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg">
-                    <i class="fab fa-google-drive"></i>
-                </div>
-                <h3 class="text-xl md:text-2xl font-bold text-brand-dark dark:text-white mb-4">Repository Google Drive
-                    ITEC</h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-10 px-4">
-                    Kumpulan ratusan modul riset teknis, lab virtual, buku panduan, dan dokumentasi proyek IT yang dapat
-                    diakses gratis oleh seluruh anggota resmi komunitas.
-                </p>
-
-                <div class="flex flex-wrap justify-center gap-3 mb-12">
-                    <span
-                        class="px-4 py-1.5 bg-blue-100 dark:bg-blue-900/40 text-brand-primary dark:text-brand-accent text-[10px] font-bold rounded-lg uppercase tracking-wider">Cyber
-                        Security</span>
-                    <span
-                        class="px-4 py-1.5 bg-blue-100 dark:bg-blue-900/40 text-brand-primary dark:text-brand-accent text-[10px] font-bold rounded-lg uppercase tracking-wider">Networking</span>
-                    <span
-                        class="px-4 py-1.5 bg-blue-100 dark:bg-blue-900/40 text-brand-primary dark:text-brand-accent text-[10px] font-bold rounded-lg uppercase tracking-wider">AI
-                        & Cloud</span>
-                </div>
-
-                <a href="https://drive.google.com/drive/folders/1Owcx8GiqA0IBj8JUUFs4RqbO1tUKIkRO?usp=drive_link"
-                    target="_blank"
-                    class="w-full md:w-auto bg-brand-primary text-white font-bold px-12 py-4 rounded-2xl hover:bg-brand-dark transition-all shadow-xl flex items-center justify-center gap-3 text-sm">
-                    BUKA GOOGLE DRIVE <i class="fas fa-folder-open"></i>
-                </a>
+            <div class="glass-ui p-10 rounded-[2.5rem] border-t-4 border-brand-accent">
+                <i class="fas fa-user-gear text-4xl mb-4"></i>
+                <h4 class="font-bold">Adelwin Nugroho Liandy</h4>
+                <p class="text-brand-primary text-[10px] font-bold uppercase">Co-Founder ITEC</p>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Section -->
-    <section id="leadership" class="py-16 md:py-24 px-6 bg-white/20 dark:bg-slate-900/20 text-center">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-16 reveal">
-                <h2 class="font-heading text-2xl md:text-3xl font-bold text-brand-dark dark:text-white tracking-tight">
-                    The Leadership</h2>
-                <p
-                    class="text-brand-primary dark:text-brand-accent font-bold uppercase tracking-widest text-[9px] mt-2">
-                    Penggerak Utama Komunitas</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                <!-- Founder -->
-                <div class="reveal glass-ui p-10 rounded-[2.5rem] border-t-4 border-brand-primary hover-card">
-                    <div
-                        class="w-28 h-28 mx-auto rounded-2xl bg-blue-50 dark:bg-slate-800 mb-6 flex items-center justify-center text-4xl text-brand-primary dark:text-brand-accent border-2 border-white dark:border-slate-700 shadow-md">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h4 class="font-heading text-lg font-bold text-brand-dark dark:text-white">Moch Nursafaq #MTCINE
-                    </h4>
-                    <p
-                        class="text-brand-primary dark:text-brand-accent text-[10px] font-bold uppercase tracking-widest mt-2 mb-6">
-                        Founder ITEC</p>
-                    <div class="flex justify-center gap-5 text-slate-300 dark:text-slate-600">
-                        <a href="#" class="hover:text-brand-primary"><i class="fab fa-linkedin text-xl"></i></a>
-                        <a href="#" class="hover:text-brand-primary"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                </div>
-
-                <!-- Co-Founder -->
-                <div class="reveal glass-ui p-10 rounded-[2.5rem] border-t-4 border-brand-accent hover-card">
-                    <div
-                        class="w-28 h-28 mx-auto rounded-2xl bg-cyan-50 dark:bg-slate-800 mb-6 flex items-center justify-center text-4xl text-brand-primary dark:text-brand-accent border-2 border-white dark:border-slate-700 shadow-md">
-                        <i class="fas fa-user-gear"></i>
-                    </div>
-                    <h4 class="font-heading text-lg font-bold text-brand-dark dark:text-white">Adelwin Nugroho Liandy
-                    </h4>
-                    <p
-                        class="text-brand-primary dark:text-brand-accent text-[10px] font-bold uppercase tracking-widest mt-2 mb-6">
-                        Co-Founder ITEC</p>
-                    <div class="flex justify-center gap-5 text-slate-300 dark:text-slate-600">
-                        <a href="#" class="hover:text-brand-primary"><i class="fab fa-linkedin text-xl"></i></a>
-                        <a href="#" class="hover:text-brand-primary"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                </div>
-            </div>
+    <section id="join" class="py-20 px-6 bg-brand-primary text-white text-center">
+        <h2 class="text-3xl font-bold mb-6">Mulai Bergabung</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <a href="https://chat.whatsapp.com/IjCgR5KNcoe9hkDUYMpwn4" class="glass-ui bg-white/10 p-8 rounded-[2.5rem] block">
+                <i class="fab fa-whatsapp text-2xl mb-4"></i>
+                <h4 class="font-bold">WhatsApp Community</h4>
+            </a>
+            <a href="https://t.me/IT_enthusiast_Community" class="glass-ui bg-white/10 p-8 rounded-[2.5rem] block">
+                <i class="fab fa-telegram-plane text-2xl mb-4"></i>
+                <h4 class="font-bold">Telegram Channel</h4>
+            </a>
         </div>
     </section>
 
-    <!-- Join Community Section -->
-    <section id="join" class="py-20 px-6 relative overflow-hidden bg-brand-primary">
-        <div
-            class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]">
-        </div>
-        <div class="max-w-4xl mx-auto text-center relative z-10 text-white text-center">
-            <h2 class="font-heading text-2xl md:text-4xl font-bold mb-6 tracking-tight uppercase">Mulai Bergabung</h2>
-            <p
-                class="text-blue-100 text-sm md:text-base mb-14 max-w-2xl mx-auto px-4 font-medium opacity-90 leading-relaxed">
-                Jangan berjalan sendirian di dunia IT. Masuk ke grup diskusi teknis paling aktif di Indonesia hari ini.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- WhatsApp -->
-                <a href="https://chat.whatsapp.com/IjCgR5KNcoe9hkDUYMpwn4" target="_blank"
-                    class="reveal block glass-ui bg-white/10 border-white/20 p-10 rounded-[2.5rem] hover:bg-white/20 transition-all group shadow-2xl">
-                    <div
-                        class="w-14 h-14 bg-green-500 text-white rounded-xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <h4 class="text-lg font-bold mb-2">WhatsApp Community</h4>
-                    <p class="text-blue-50 text-xs mb-8">Diskusi harian regional hub dan info lowongan kerja IT
-                        tercepat.</p>
-                    <span
-                        class="inline-flex items-center gap-2 text-green-400 font-bold uppercase tracking-widest text-[9px]">
-                        Join WhatsApp Group <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
-
-                <!-- Telegram -->
-                <a href="https://t.me/IT_enthusiast_Community" target="_blank"
-                    class="reveal block glass-ui bg-white/10 border-white/20 p-10 rounded-[2.5rem] hover:bg-white/20 transition-all group shadow-2xl">
-                    <div
-                        class="w-14 h-14 bg-brand-secondary text-white rounded-xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fab fa-telegram-plane"></i>
-                    </div>
-                    <h4 class="text-lg font-bold mb-2">Telegram Channel</h4>
-                    <p class="text-blue-50 text-xs mb-8">Arsip riset, notifikasi workshop, dan pengumuman resmi
-                        komunitas.</p>
-                    <span
-                        class="inline-flex items-center gap-2 text-cyan-300 font-bold uppercase tracking-widest text-[9px]">
-                        Join Telegram Channel <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-brand-dark text-center">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-3">
-                <div class="w-7 h-7 bg-brand-primary rounded flex items-center justify-center text-white text-[10px]">
-                    <i class="fas fa-terminal"></i>
-                </div>
-                <span
-                    class="font-heading text-base font-bold text-brand-dark dark:text-white tracking-tighter uppercase">ITEC<span
-                        class="text-brand-primary">.</span></span>
-            </div>
-            <p class="text-[9px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-                © 2026 IT Enthusiast Community Indonesia. <br class="md:hidden"> Tersebar di 38 Provinsi.
-            </p>
-            <div class="flex gap-6 text-slate-300 dark:text-slate-600">
-                <a href="#" class="hover:text-brand-primary transition-colors"><i
-                        class="fab fa-instagram text-lg"></i></a>
-                <a href="#" class="hover:text-brand-primary transition-colors"><i class="fab fa-github text-lg"></i></a>
-                <a href="#" class="hover:text-brand-primary transition-colors"><i
-                        class="fab fa-linkedin text-lg"></i></a>
-            </div>
-        </div>
+    <footer class="py-12 px-6 bg-white dark:bg-brand-dark text-center border-t border-slate-200">
+        <p class="text-[10px] font-bold uppercase tracking-widest">© 2026 IT Enthusiast Community Indonesia.</p>
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
-        // --- 1. Dark Mode Logic ---
-        const darkToggle = document.getElementById('dark-toggle');
-        const darkToggleMobile = document.getElementById('dark-toggle-mobile');
         const html = document.documentElement;
-
-        // Check preference on load
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
-
-        const toggleDarkMode = () => {
+        const toggle = () => {
             html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
+            localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
         };
+        document.getElementById('dark-toggle').addEventListener('click', toggle);
 
-        darkToggle.addEventListener('click', toggleDarkMode);
-        darkToggleMobile.addEventListener('click', toggleDarkMode);
-
-        // --- 2. Reveal on Scroll ---
-        const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // --- 3. Mobile Menu ---
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-            const icon = menuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars-staggered');
-            icon.classList.toggle('fa-times');
-        });
-
-        // --- 4. Navbar Scroll Effect ---
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('py-2');
-                nav.classList.remove('py-4');
-            } else {
-                nav.classList.remove('py-2');
-                nav.classList.add('py-4');
-            }
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
     </script>
 </body>
-
 </html>
-
-
