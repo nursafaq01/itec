@@ -439,14 +439,16 @@ section { padding: 6rem 6%; }
 .merch-card-2:hover { border-color: var(--blue-200); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,99,235,0.1); }
 
 .merch-img-2 {
-  width: 100%; aspect-ratio: 4/3; overflow: hidden;
-  background: var(--blue-50);
+  width: 100%; background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
 }
 .merch-img-2 img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: auto; object-fit: contain;
+  display: block;
   transition: transform 0.4s ease;
 }
-.merch-card-2:hover .merch-img-2 img { transform: scale(1.03); }
+.merch-card-2:hover .merch-img-2 img { transform: scale(1.02); }
 
 .merch-img {
   height: 140px; display: flex; align-items: center; justify-content: center;
