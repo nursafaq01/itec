@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Enthusiast Community</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-900: #1e3a8a;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  --gray-600: #4b5563;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --white: #ffffff;
+  --text: #111827;
+  --text-muted: #6b7280;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%; height: 68px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem; color: var(--blue-700);
+  letter-spacing: -0.3px; text-decoration: none;
+}
+.nav-logo span { color: var(--gray-400); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 400; margin-left: 6px; }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--blue-600); }
+
+.nav-cta {
+  background: var(--blue-600); color: #fff;
+  border: none; padding: 0.5rem 1.25rem;
+  border-radius: 8px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--blue-700); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 6% 5rem;
+  background: var(--white);
+  position: relative; overflow: hidden;
+}
+
+.hero-bg-dots {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: radial-gradient(circle, var(--blue-200) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 70% 80% at 80% 50%, black 20%, transparent 80%);
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 520px; flex-shrink: 0; }
+.hero-image {
+  position: relative; z-index: 1;
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  min-width: 0;
+}
+.hero-image img {
+  width: 100%; max-width: 520px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 24px 64px rgba(37,99,235,0.12);
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--blue-600); letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 24px; height: 2px; background: var(--blue-500);
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.1; letter-spacing: -1.5px;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: normal; color: var(--blue-600); }
+
+.hero p {
+  font-size: 1.05rem; color: var(--text-muted);
+  max-width: 480px; margin-bottom: 2.5rem; line-height: 1.75;
+}
+
+.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn-blue {
+  background: var(--blue-600); color: #fff;
+  padding: 0.75rem 1.75rem; border-radius: 10px;
+  font-size: 0.9rem; font-weight: 600; border: none;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: all 0.2s;
+}
+.btn-blue:hover { background: var(--blue-700); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent; color: var(--blue-600);
+  padding: 0.75rem 1.75rem; border-radius: 10px;
+  font-size: 0.9rem; font-weight: 600;
+  border: 1.5px solid var(--blue-200);
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--blue-400); background: var(--blue-50); }
+
+.hero-numbers {
+  display: flex; gap: 2.5rem; margin-top: 3.5rem;
+  padding-top: 2rem; border-top: 1px solid var(--gray-100);
+}
+.num-item {}
+.num-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem; color: var(--gray-900); line-height: 1;
+}
+.num-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+/* ─── SHARED ─── */
+section { padding: 6rem 6%; }
+
+.section-label {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue-500);
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 0.75rem;
+}
+.section-label::after {
+  content: ''; flex: 1; max-width: 32px;
+  height: 1.5px; background: var(--blue-300);
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  letter-spacing: -0.8px; color: var(--gray-900);
+  margin-bottom: 0.75rem; line-height: 1.2;
+}
+
+.section-sub { font-size: 1rem; color: var(--text-muted); max-width: 500px; }
+
+.section-head { margin-bottom: 3.5rem; }
+
+/* ─── ABOUT ─── */
+.about { background: var(--gray-50); }
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+
+.about-text p {
+  font-size: 0.95rem; color: var(--text-muted);
+  line-height: 1.8; margin-bottom: 1rem;
+}
+
+.about-values {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  margin-top: 1.5rem;
+}
+.value-item {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 12px; padding: 1.1rem;
+  transition: border-color 0.2s;
+}
+.value-item:hover { border-color: var(--blue-300); }
+.value-icon { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.value-name { font-size: 0.875rem; font-weight: 600; color: var(--gray-800); }
+.value-desc { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+.about-visual {
+  background: var(--blue-600); border-radius: 20px;
+  padding: 2.5rem; color: white; position: relative; overflow: hidden;
+}
+.about-visual::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: rgba(255,255,255,0.06); border-radius: 50%;
+}
+.about-visual::after {
+  content: '';
+  position: absolute; bottom: -60px; left: -30px;
+  width: 220px; height: 220px;
+  background: rgba(255,255,255,0.04); border-radius: 50%;
+}
+.about-visual h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem; margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+}
+.divisi-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; position: relative; z-index: 1; }
+.divisi-item {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.1); border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+.divisi-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.divisi-item p { font-size: 0.9rem; font-weight: 600; }
+.divisi-item small { font-size: 0.75rem; opacity: 0.7; display: block; }
+
+/* ─── DIVISI ─── */
+.divisi-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+}
+
+.divisi-card {
+  border: 1.5px solid var(--gray-200); border-radius: 16px;
+  padding: 2rem; background: var(--white);
+  transition: all 0.25s; position: relative; overflow: hidden;
+}
+.divisi-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.divisi-card.cyber::after { background: #3b82f6; }
+.divisi-card.net::after { background: #10b981; }
+.divisi-card.ai::after { background: #8b5cf6; }
+.divisi-card:hover { border-color: var(--blue-200); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,99,235,0.08); }
+.divisi-card:hover::after { transform: scaleX(1); }
+
+.dc-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 1.25rem;
+}
+.cyber .dc-icon { background: #eff6ff; }
+.net .dc-icon { background: #ecfdf5; }
+.ai .dc-icon { background: #f5f3ff; }
+
+.divisi-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--gray-900); }
+.divisi-card > p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+
+.dc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+.dc-tag {
+  font-size: 0.72rem; font-weight: 500; padding: 0.25rem 0.65rem;
+  border-radius: 100px; border: 1px solid;
+}
+.cyber .dc-tag { color: var(--blue-600); border-color: var(--blue-200); background: var(--blue-50); }
+.net .dc-tag { color: #059669; border-color: #a7f3d0; background: #ecfdf5; }
+.ai .dc-tag { color: #7c3aed; border-color: #ddd6fe; background: #f5f3ff; }
+
+.dc-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1.25rem; border-top: 1px solid var(--gray-100);
+}
+.dc-members { font-size: 0.8rem; color: var(--text-muted); }
+.dc-members strong { color: var(--gray-800); }
+
+.dc-btn {
+  font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  padding: 0.35rem 0.9rem; border-radius: 6px; border: none;
+  font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+}
+.cyber .dc-btn { background: var(--blue-50); color: var(--blue-600); }
+.cyber .dc-btn:hover { background: var(--blue-100); }
+.net .dc-btn { background: #ecfdf5; color: #059669; }
+.net .dc-btn:hover { background: #d1fae5; }
+.ai .dc-btn { background: #f5f3ff; color: #7c3aed; }
+.ai .dc-btn:hover { background: #ede9fe; }
+
+/* ─── KEGIATAN ─── */
+.kegiatan { background: var(--gray-50); }
+
+.kegiatan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+.kegiatan-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 14px; padding: 1.5rem;
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  transition: all 0.2s;
+}
+.kegiatan-card:hover { border-color: var(--blue-200); box-shadow: 0 4px 20px rgba(37,99,235,0.07); }
+
+.kg-date {
+  background: var(--blue-600); color: white;
+  border-radius: 10px; padding: 0.6rem 0.75rem;
+  text-align: center; flex-shrink: 0; min-width: 52px;
+}
+.kg-date .day { font-family: 'DM Serif Display', serif; font-size: 1.4rem; line-height: 1; }
+.kg-date .month { font-size: 0.65rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; margin-top: 2px; }
+
+.kg-info {}
+.kg-type {
+  display: inline-block; font-size: 0.68rem; font-weight: 600;
+  padding: 0.2rem 0.6rem; border-radius: 100px;
+  letter-spacing: 0.5px; margin-bottom: 0.4rem;
+}
+.kg-type.webinar { background: var(--blue-50); color: var(--blue-600); }
+.kg-type.workshop { background: #ecfdf5; color: #059669; }
+.kg-type.meetup { background: #fff7ed; color: #c2410c; }
+.kg-type.ctf { background: #f5f3ff; color: #7c3aed; }
+
+.kegiatan-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.35rem; line-height: 1.4; }
+.kegiatan-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+.kg-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+/* ─── COURSE ─── */
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+.course-card {
+  border: 1.5px solid var(--gray-200); border-radius: 16px;
+  overflow: hidden; background: var(--white);
+  transition: all 0.25s;
+}
+.course-card:hover { border-color: var(--blue-300); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
+
+.course-thumb {
+  height: 100px; display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem;
+}
+.course-thumb.c1 { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+.course-thumb.c2 { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+.course-thumb.c3 { background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
+.course-thumb.c4 { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
+.course-thumb.c5 { background: linear-gradient(135deg, #fdf2f8, #fce7f3); }
+.course-thumb.c6 { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+
+.course-body { padding: 1.25rem; }
+.course-level {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.level-beginner { color: #059669; }
+.level-intermediate { color: #d97706; }
+.level-advanced { color: #dc2626; }
+
+.course-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.4rem; line-height: 1.4; }
+.course-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
+.course-meta { display: flex; align-items: center; justify-content: space-between; }
+.course-duration { font-size: 0.75rem; color: var(--text-muted); }
+.course-price {
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--blue-600); background: var(--blue-50);
+  padding: 0.2rem 0.6rem; border-radius: 6px;
+}
+
+/* ─── MATERI GRATIS ─── */
+.materi { background: var(--gray-50); }
+
+.materi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+.materi-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 14px; padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  transition: all 0.2s;
+}
+.materi-card:hover { border-color: var(--blue-200); }
+
+.materi-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--blue-50); display: flex; align-items: center;
+  justify-content: center; font-size: 1.2rem;
+}
+.materi-card h4 { font-size: 0.875rem; font-weight: 700; color: var(--gray-900); line-height: 1.4; }
+.materi-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+.materi-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.7rem; font-weight: 600; color: #059669;
+  background: #ecfdf5; padding: 0.2rem 0.6rem; border-radius: 100px;
+  width: fit-content;
+}
+.materi-link {
+  font-size: 0.8rem; font-weight: 600; color: var(--blue-600);
+  text-decoration: none; display: flex; align-items: center; gap: 4px;
+  transition: gap 0.2s;
+}
+.materi-link:hover { gap: 8px; }
+
+/* ─── MERCHANDISE ─── */
+.merch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+.merch-grid-2 {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+  max-width: 860px; margin: 0 auto;
+}
+
+.merch-card {
+  border: 1.5px solid var(--gray-200); border-radius: 16px;
+  overflow: hidden; background: var(--white);
+  transition: all 0.25s;
+}
+.merch-card:hover { border-color: var(--blue-200); transform: translateY(-2px); }
+
+.merch-card-2 {
+  border: 1.5px solid var(--gray-200); border-radius: 16px;
+  overflow: hidden; background: var(--white);
+  transition: all 0.25s;
+}
+.merch-card-2:hover { border-color: var(--blue-200); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,99,235,0.1); }
+
+.merch-img-2 {
+  width: 100%; aspect-ratio: 4/3; overflow: hidden;
+  background: var(--blue-50);
+}
+.merch-img-2 img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.merch-card-2:hover .merch-img-2 img { transform: scale(1.03); }
+
+.merch-img {
+  height: 140px; display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; background: var(--blue-50);
+}
+.merch-body { padding: 1.25rem; }
+.merch-card h4, .merch-card-2 h4 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.3rem; }
+.merch-card small, .merch-card-2 small { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; display: block; }
+.merch-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 1rem;
+}
+.merch-price { font-size: 1rem; font-weight: 700; color: var(--blue-700); }
+.merch-btn {
+  font-size: 0.8rem; font-weight: 600;
+  background: var(--blue-600); color: white;
+  border: none; padding: 0.45rem 1rem; border-radius: 8px;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+}
+.merch-btn:hover { background: var(--blue-700); }
+
+/* ─── JOIN ─── */
+.join {
+  background: var(--blue-700);
+  position: relative; overflow: hidden;
+}
+.join::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,0.04); border-radius: 50%;
+}
+.join::after {
+  content: '';
+  position: absolute; bottom: -100px; left: 10%;
+  width: 250px; height: 250px;
+  background: rgba(255,255,255,0.03); border-radius: 50%;
+}
+
+.join-inner {
+  max-width: 680px; margin: 0 auto; text-align: center;
+  position: relative; z-index: 1;
+}
+
+.join .section-label { justify-content: center; color: var(--blue-200); }
+.join .section-label::after { background: var(--blue-400); }
+
+.join .section-title { color: white; margin-bottom: 1rem; }
+
+.join > .join-inner > p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem; margin-bottom: 2.5rem; line-height: 1.75;
+}
+
+.join-platforms {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.platform-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 0.9rem 1.75rem; border-radius: 12px;
+  font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; border: none; text-decoration: none;
+  transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+}
+.platform-btn.wa {
+  background: #25d366; color: white;
+}
+.platform-btn.wa:hover { background: #20bd5c; transform: translateY(-2px); }
+.platform-btn.tg {
+  background: #0088cc; color: white;
+}
+.platform-btn.tg:hover { background: #0077b3; transform: translateY(-2px); }
+
+.platform-icon { font-size: 1.2rem; }
+
+.join-note { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 2.5rem 6%;
+  border-top: 1px solid var(--gray-100);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem; color: var(--blue-700);
+}
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--blue-600); }
+.footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+
+/* ─── ANIMATE ─── */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-in.show { opacity: 1; transform: translateY(0); }
+
+/* ─── HAMBURGER ─── */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; cursor: pointer; padding: 4px; background: none; border: none;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--gray-800); border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 68px; left: 0; right: 0;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-100); z-index: 199;
+  flex-direction: column; padding: 1rem 6%;
+  gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 1rem; font-weight: 500; color: var(--text);
+  text-decoration: none; padding: 0.85rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  transition: color 0.2s;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--blue-600); }
+.mobile-menu-cta {
+  margin-top: 1rem;
+  background: var(--blue-600); color: white;
+  text-align: center; padding: 0.8rem;
+  border-radius: 10px; font-weight: 600; font-size: 0.95rem;
+  text-decoration: none; display: block;
+}
+
+/* ─── RESPONSIVE ─── */
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .divisi-cards { grid-template-columns: repeat(2, 1fr); }
+  .course-grid { grid-template-columns: repeat(2, 1fr); }
+  .materi-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { gap: 3rem; }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  nav { padding: 0 5%; }
+
+  /* Nav logo — hide text, show only logo image on small screens */
+  .nav-logo span { display: none; }
+  .nav-logo-text { display: none; }
+
+  /* Hero */
+  .hero {
+    flex-direction: column !important;
+    padding: 7rem 5% 4rem !important;
+    gap: 2.5rem !important;
+    text-align: center;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-eyebrow { justify-content: center; }
+  .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero p { max-width: 100%; }
+  .hero-btns { justify-content: center; }
+  .hero-numbers { justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .hero-image { width: 100%; }
+  .hero-image img { max-width: 100%; border-radius: 14px; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-values { grid-template-columns: 1fr 1fr; }
+
+  /* Divisi */
+  .divisi-cards { grid-template-columns: 1fr; }
+
+  /* Kegiatan */
+  .kegiatan-grid { grid-template-columns: 1fr; }
+
+  /* Course */
+  .course-grid { grid-template-columns: 1fr; }
+
+  /* Materi */
+  .materi-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Merch */
+  .merch-grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* Footer */
+  footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; }
+
+  /* Section padding */
+  section { padding: 4rem 5%; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  nav { height: 60px; }
+  .mobile-menu { top: 60px; }
+
+  .hero { padding: 6rem 5% 3rem !important; }
+  .hero h1 { font-size: clamp(1.9rem, 7vw, 2.4rem); letter-spacing: -1px; }
+  .hero-numbers { gap: 1rem; }
+  .num-val { font-size: 1.6rem; }
+
+  .about-values { grid-template-columns: 1fr; }
+
+  .materi-grid { grid-template-columns: 1fr; }
+
+  .kegiatan-card { flex-direction: column; gap: 1rem; }
+
+  .section-title { font-size: 1.7rem; }
+
+  .join-platforms { flex-direction: column; align-items: center; }
+  .platform-btn { width: 100%; justify-content: center; }
+
+  footer { padding: 2rem 5%; }
+  .footer-links { gap: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#" style="display:flex;align-items:center;gap:10px;">
+    <img src="https://adelwinnugroho.my.id/img/itenthusiast.png" alt="IEC Logo" style="height:36px;width:auto;object-fit:contain;">
+    IT Enthusiast Community <span>· IEC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#divisi">Divisi</a></li>
+    <li><a href="#kegiatan">Kegiatan</a></li>
+    <li><a href="#course">Training</a></li>
+    <li><a href="#materi">Materi</a></li>
+    <li><a href="#merch">Merch</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Gabung Komunitas</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">Tentang</a>
+  <a href="#divisi" onclick="closeMenu()">Divisi</a>
+  <a href="#kegiatan" onclick="closeMenu()">Kegiatan</a>
+  <a href="#course" onclick="closeMenu()">Training</a>
+  <a href="#materi" onclick="closeMenu()">Materi</a>
+  <a href="#merch" onclick="closeMenu()">Merch</a>
+  <a href="#join" class="mobile-menu-cta" onclick="closeMenu()">Gabung Komunitas</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="display:flex;align-items:center;justify-content:space-between;gap:3rem;">
+  <div class="hero-bg-dots"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Komunitas IT Indonesia</div>
+    <h1>Belajar, Bertumbuh,<br>dan <em>Berkolaborasi</em><br>Bersama</h1>
+    <p>IT Enthusiast Community adalah rumah bagi siapa saja yang ingin mendalami dunia teknologi — dari Cybersecurity, Networking, hingga Artificial Intelligence.</p>
+    <div class="hero-btns">
+      <a href="#join" class="btn-blue">Gabung Sekarang</a>
+      <a href="#divisi" class="btn-outline">Lihat Divisi →</a>
+    </div>
+    <div class="hero-numbers">
+      <div class="num-item">
+        <div class="num-val">2.4K+</div>
+        <div class="num-label">Anggota Aktif</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val">3</div>
+        <div class="num-label">Divisi Keahlian</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val">50+</div>
+        <div class="num-label">Mentor & Expert</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val">Gratis</div>
+        <div class="num-label">Untuk Bergabung</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://it-enthusiast.site/logo%20itec.jpg" alt="IT Enthusiast Community" />
+  </div>
+</section>
+<section id="about" class="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label fade-in">Tentang Kami</div>
+      <h2 class="section-title fade-in">Komunitas yang Tumbuh Bersama Teknologi</h2>
+      <p class="fade-in">IT Enthusiast Community (IEC) adalah komunitas teknologi informasi yang terbuka untuk semua kalangan — pelajar, mahasiswa, maupun profesional. Kami percaya belajar IT lebih efektif ketika dilakukan bersama.</p>
+      <p class="fade-in">Melalui tiga divisi utama, kami menyediakan ruang belajar, diskusi, mentoring, dan kolaborasi yang nyata dan terstruktur.</p>
+      <div class="about-values fade-in">
+        <div class="value-item">
+          <div class="value-icon">🤝</div>
+          <div class="value-name">Kolaboratif</div>
+          <div class="value-desc">Berbagi ilmu tanpa ego</div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">📈</div>
+          <div class="value-name">Progresif</div>
+          <div class="value-desc">Terus belajar & berkembang</div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🌍</div>
+          <div class="value-name">Inklusif</div>
+          <div class="value-desc">Terbuka untuk semua kalangan</div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">⚡</div>
+          <div class="value-name">Praktis</div>
+          <div class="value-desc">Fokus pada skill nyata</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual fade-in">
+      <h3>Tiga Divisi Keahlian</h3>
+      <ul class="divisi-list">
+        <li class="divisi-item">
+          <div class="divisi-dot" style="background:#60a5fa"></div>
+          <div>
+            <p>Cybersecurity</p>
+            <small>Ethical hacking, forensik, CTF & keamanan siber</small>
+          </div>
+        </li>
+        <li class="divisi-item">
+          <div class="divisi-dot" style="background:#34d399"></div>
+          <div>
+            <p>Networking</p>
+            <small>Infrastruktur jaringan, SDN & cloud infrastructure</small>
+          </div>
+        </li>
+        <li class="divisi-item">
+          <div class="divisi-dot" style="background:#c084fc"></div>
+          <div>
+            <p>Artificial Intelligence</p>
+            <small>ML, deep learning, LLM & computer vision</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISI -->
+<section id="divisi">
+  <div class="section-head">
+    <div class="section-label fade-in">Divisi</div>
+    <h2 class="section-title fade-in">Pilih Jalur Keahlianmu</h2>
+    <p class="section-sub fade-in">Setiap divisi punya komunitas, konten, dan event tersendiri yang aktif setiap bulan.</p>
+  </div>
+  <div class="divisi-cards">
+
+    <div class="divisi-card cyber fade-in">
+      <div class="dc-icon">🛡️</div>
+      <h3>Cybersecurity</h3>
+      <p>Pelajari seni pertahanan dan serangan digital. Dari ethical hacking, forensik, hingga kepatuhan keamanan siber.</p>
+      <div class="dc-tags">
+        <span class="dc-tag">Ethical Hacking</span>
+        <span class="dc-tag">Pentest</span>
+        <span class="dc-tag">CTF</span>
+        <span class="dc-tag">SOC Analyst</span>
+        <span class="dc-tag">OSCP</span>
+      </div>
+      <div class="dc-footer">
+        <div class="dc-members"><strong>820</strong> anggota</div>
+        <button class="dc-btn">Gabung</button>
+      </div>
+    </div>
+
+    <div class="divisi-card net fade-in" style="transition-delay:0.1s">
+      <div class="dc-icon">🌐</div>
+      <h3>Networking</h3>
+      <p>Kuasai infrastruktur jaringan modern mulai dari routing & switching hingga SDN dan cloud infrastructure.</p>
+      <div class="dc-tags">
+        <span class="dc-tag">Cisco / MikroTik</span>
+        <span class="dc-tag">SDN</span>
+        <span class="dc-tag">CCNA / CCNP</span>
+        <span class="dc-tag">BGP / OSPF</span>
+      </div>
+      <div class="dc-footer">
+        <div class="dc-members"><strong>940</strong> anggota</div>
+        <button class="dc-btn">Gabung</button>
+      </div>
+    </div>
+
+    <div class="divisi-card ai fade-in" style="transition-delay:0.2s">
+      <div class="dc-icon">🤖</div>
+      <h3>Artificial Intelligence</h3>
+      <p>Dari machine learning dasar hingga LLM & GenAI. Bangun dan deploy solusi AI untuk kebutuhan nyata.</p>
+      <div class="dc-tags">
+        <span class="dc-tag">Machine Learning</span>
+        <span class="dc-tag">Deep Learning</span>
+        <span class="dc-tag">LLM / GenAI</span>
+        <span class="dc-tag">MLOps</span>
+      </div>
+      <div class="dc-footer">
+        <div class="dc-members"><strong>640</strong> anggota</div>
+        <button class="dc-btn">Gabung</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- KEGIATAN -->
+<section id="kegiatan" class="kegiatan">
+  <div class="section-head">
+    <div class="section-label fade-in">Kegiatan</div>
+    <h2 class="section-title fade-in">Agenda Komunitas</h2>
+    <p class="section-sub fade-in">Webinar, workshop, CTF, dan meetup rutin setiap bulan untuk semua level.</p>
+  </div>
+  <div class="kegiatan-grid">
+
+    <div class="kegiatan-card fade-in">
+      <div class="kg-date"><div class="day">25</div><div class="month">Mei</div></div>
+      <div class="kg-info">
+        <span class="kg-type webinar">Webinar</span>
+        <h4>Red Team vs Blue Team: Simulasi Serangan APT Modern</h4>
+        <p>Simulasi nyata bagaimana tim merah melancarkan serangan dan tim biru merespons secara real-time.</p>
+        <div class="kg-meta">⏰ 19:00 WIB · Online · Gratis</div>
+      </div>
+    </div>
+
+    <div class="kegiatan-card fade-in" style="transition-delay:0.1s">
+      <div class="kg-date"><div class="day">01</div><div class="month">Jun</div></div>
+      <div class="kg-info">
+        <span class="kg-type workshop">Workshop</span>
+        <h4>Hands-On: SD-WAN dengan Open Source Tools</h4>
+        <p>Konfigurasi SD-WAN menggunakan VyOS dan OpenWRT langsung di lab virtual yang sudah disiapkan.</p>
+        <div class="kg-meta">⏰ 09:00 WIB · Online · Gratis untuk anggota</div>
+      </div>
+    </div>
+
+    <div class="kegiatan-card fade-in" style="transition-delay:0.2s">
+      <div class="kg-date"><div class="day">07</div><div class="month">Jun</div></div>
+      <div class="kg-info">
+        <span class="kg-type ctf">CTF</span>
+        <h4>NexCTF 2025 — Capture The Flag Nasional</h4>
+        <p>Kompetisi CTF terbuka untuk pelajar dan profesional. Total hadiah Rp 15.000.000.</p>
+        <div class="kg-meta">⏰ 2 hari · Online · Pendaftaran gratis</div>
+      </div>
+    </div>
+
+    <div class="kegiatan-card fade-in" style="transition-delay:0.3s">
+      <div class="kg-date"><div class="day">15</div><div class="month">Jun</div></div>
+      <div class="kg-info">
+        <span class="kg-type meetup">Meetup</span>
+        <h4>IEC Meetup Juni — Networking & Sharing Session</h4>
+        <p>Kumpul bareng anggota komunitas, sharing pengalaman, dan memperluas jaringan profesional IT.</p>
+        <div class="kg-meta">⏰ 13:00 WIB · Offline · Surabaya</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COURSE / TRAINING -->
+<section id="course">
+  <div class="section-head">
+    <div class="section-label fade-in">Course & Training</div>
+    <h2 class="section-title fade-in">Tingkatkan Skill dengan Training Terstruktur</h2>
+    <p class="section-sub fade-in">Program training dengan kurikulum terstruktur, dibimbing langsung oleh praktisi berpengalaman.</p>
+  </div>
+  <div class="course-grid">
+
+    <div class="course-card fade-in">
+      <div class="course-thumb c1">🛡️</div>
+      <div class="course-body">
+        <div class="course-level level-beginner">Beginner</div>
+        <h4>Dasar-Dasar Cybersecurity untuk Pemula</h4>
+        <p>Fondasi keamanan siber: konsep, tools dasar, dan cara berpikir seperti security analyst.</p>
+        <div class="course-meta">
+          <span class="course-duration">⏱ 8 sesi · Online</span>
+          <span class="course-price">Gratis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card fade-in" style="transition-delay:0.1s">
+      <div class="course-thumb c2">🌐</div>
+      <div class="course-body">
+        <div class="course-level level-intermediate">Intermediate</div>
+        <h4>Network Engineer Bootcamp: CCNA Path</h4>
+        <p>Persiapan sertifikasi CCNA dari nol sampai siap ujian dengan latihan soal dan lab virtual.</p>
+        <div class="course-meta">
+          <span class="course-duration">⏱ 12 sesi · Online</span>
+          <span class="course-price">Rp 299K</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card fade-in" style="transition-delay:0.2s">
+      <div class="course-thumb c3">🤖</div>
+      <div class="course-body">
+        <div class="course-level level-beginner">Beginner</div>
+        <h4>Machine Learning untuk Developer</h4>
+        <p>Mulai ML dari Python dasar hingga deploy model pertamamu ke production environment.</p>
+        <div class="course-meta">
+          <span class="course-duration">⏱ 10 sesi · Online</span>
+          <span class="course-price">Rp 199K</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card fade-in" style="transition-delay:0.1s">
+      <div class="course-thumb c4">🔓</div>
+      <div class="course-body">
+        <div class="course-level level-advanced">Advanced</div>
+        <h4>Ethical Hacking & Penetration Testing</h4>
+        <p>Teknik pentest profesional: reconnaissance, exploitation, post-exploitation, dan reporting.</p>
+        <div class="course-meta">
+          <span class="course-duration">⏱ 16 sesi · Online</span>
+          <span class="course-price">Rp 499K</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card fade-in" style="transition-delay:0.2s">
+      <div class="course-thumb c5">☁️</div>
+      <div class="course-body">
+        <div class="course-level level-intermediate">Intermediate</div>
+        <h4>Cloud Infrastructure & DevOps Essentials</h4>
+        <p>AWS, GCP, Docker, Kubernetes — fondasi infrastruktur modern untuk engineer masa kini.</p>
+        <div class="course-meta">
+          <span class="course-duration">⏱ 10 sesi · Online</span>
+          <span class="course-price">Rp 349K</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card fade-in" style="transition-delay:0.3s">
+      <div class="course-thumb c6">🧠</div>
+      <div class="course-body">
+        <div class="course-level level-advanced">Advanced</div>
+        <h4>LLM Engineering & AI Agents</h4>
+        <p>Bangun aplikasi berbasis LLM, RAG system, dan autonomous AI agents dari awal hingga production.</p>
+        <div class="course-meta">
+          <span class="course-duration">⏱ 14 sesi · Online</span>
+          <span class="course-price">Rp 599K</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MATERI GRATIS -->
+<section id="materi" class="materi">
+  <div class="section-head">
+    <div class="section-label fade-in">Materi Gratis</div>
+    <h2 class="section-title fade-in">Belajar Tanpa Batas, Tanpa Biaya</h2>
+    <p class="section-sub fade-in">Ratusan materi gratis yang bisa langsung kamu akses setelah bergabung komunitas.</p>
+  </div>
+  <div class="materi-grid">
+
+    <div class="materi-card fade-in">
+      <div class="materi-icon">📄</div>
+      <h4>Roadmap Cybersecurity 2025</h4>
+      <p>Panduan lengkap jalur belajar cybersecurity dari nol hingga siap kerja sebagai security professional.</p>
+      <span class="materi-badge">✓ Gratis</span>
+      <a href="#" class="materi-link">Unduh PDF →</a>
+    </div>
+
+    <div class="materi-card fade-in" style="transition-delay:0.1s">
+      <div class="materi-icon">🎥</div>
+      <h4>Video: Pengenalan Jaringan Komputer</h4>
+      <p>Seri 10 video belajar networking dari dasar — OSI model, TCP/IP, subnetting, dan routing.</p>
+      <span class="materi-badge">✓ Gratis</span>
+      <a href="#" class="materi-link">Tonton →</a>
+    </div>
+
+    <div class="materi-card fade-in" style="transition-delay:0.2s">
+      <div class="materi-icon">📓</div>
+      <h4>Cheat Sheet Linux untuk Hacker</h4>
+      <p>Kumpulan command Linux paling sering dipakai dalam penetration testing dan forensic analysis.</p>
+      <span class="materi-badge">✓ Gratis</span>
+      <a href="#" class="materi-link">Unduh →</a>
+    </div>
+
+    <div class="materi-card fade-in" style="transition-delay:0.3s">
+      <div class="materi-icon">🤖</div>
+      <h4>Panduan Mulai Belajar AI & ML</h4>
+      <p>E-book pengantar AI/ML: terminologi, tools yang dibutuhkan, dan proyek pertama yang bisa langsung dicoba.</p>
+      <span class="materi-badge">✓ Gratis</span>
+      <a href="#" class="materi-link">Unduh E-book →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- MERCHANDISE -->
+<section id="merch">
+  <div class="section-head">
+    <div class="section-label fade-in">Merchandise</div>
+    <h2 class="section-title fade-in">Tunjukkan Identitasmu sebagai IT Enthusiast</h2>
+    <p class="section-sub fade-in">Merchandise eksklusif komunitas — hanya tersedia untuk anggota IEC.</p>
+  </div>
+  <div class="merch-grid-2">
+
+    <div class="merch-card-2 fade-in">
+      <div class="merch-img-2">
+        <img src="https://it-enthusiast.site/Kaos%20berkerah.jpg" alt="Kaos IT Berkerah" />
+      </div>
+      <div class="merch-body">
+        <h4>Kaos IT Berkerah</h4>
+        <small>Cotton Combed 30s Premium. Cocok untuk acara formal komunitas dan kantor.</small>
+        <div class="merch-footer">
+          <span class="merch-price">70k – 80k</span>
+          <button class="merch-btn">Pesan Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="merch-card-2 fade-in" style="transition-delay:0.1s">
+      <div class="merch-img-2">
+        <img src="https://it-enthusiast.site/Kaos%20biasa.jpg" alt="Kaos IT Biasa" />
+      </div>
+      <div class="merch-body">
+        <h4>Kaos IT Biasa</h4>
+        <small>Bahan Cotton Premium. Cocok untuk acara kumpul, coding, dan kegiatan sehari-hari.</small>
+        <div class="merch-footer">
+          <span class="merch-price">60k – 70k</span>
+          <button class="merch-btn">Pesan Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join" class="join">
+  <div class="join-inner">
+    <div class="section-label fade-in">Bergabung</div>
+    <h2 class="section-title fade-in">Siap Jadi Bagian dari IEC?</h2>
+    <p class="fade-in">Gratis untuk bergabung. Pilih platform yang paling nyaman untukmu dan langsung terhubung dengan ribuan anggota aktif dari seluruh Indonesia.</p>
+    <div class="join-platforms fade-in">
+      <a href="https://wa.me/" class="platform-btn wa" target="_blank">
+        <span class="platform-icon">💬</span>
+        Gabung via WhatsApp
+      </a>
+      <a href="https://t.me/" class="platform-btn tg" target="_blank">
+        <span class="platform-icon">✈️</span>
+        Gabung via Telegram
+      </a>
+    </div>
+    <p class="join-note fade-in">Gratis · Tidak perlu akun · Langsung aktif</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">IT Enthusiast Community</div>
+  <ul class="footer-links">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#divisi">Divisi</a></li>
+    <li><a href="#kegiatan">Kegiatan</a></li>
+    <li><a href="#course">Training</a></li>
+    <li><a href="#materi">Materi</a></li>
+    <li><a href="#merch">Merch</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 IT Enthusiast Community · Semua kalangan welcome</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
