@@ -6,7 +6,15 @@
 <title>IT Enthusiast Community</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark-theme');
+    }
+  })();
+</script>
 </head>
 <body>
 
@@ -24,6 +32,9 @@
     <li><a href="#materi">Materi</a></li>
     <li><a href="#merch">Merch</a></li>
   </ul>
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+    <span class="theme-icon">🌙</span>
+  </button>
   <button class="nav-cta" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Gabung Komunitas</button>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -483,6 +494,27 @@
     document.getElementById('mobileMenu').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
   }
+
+  // Dark Mode Functionality
+  function toggleTheme() {
+    const htmlEl = document.documentElement;
+    const isDark = htmlEl.classList.toggle('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeIcon(isDark);
+  }
+
+  function updateThemeIcon(isDark) {
+    const icons = document.querySelectorAll('.theme-icon');
+    icons.forEach(icon => {
+      icon.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+
+  // Initialize theme icon state on load
+  (function initThemeIcon() {
+    const isDark = document.documentElement.classList.contains('dark-theme');
+    updateThemeIcon(isDark);
+  })();
 </script>
 
 </body>
