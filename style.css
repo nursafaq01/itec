@@ -336,77 +336,356 @@ section { padding: 6rem 6%; }
 .kg-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
 
 /* ─── COURSE ─── */
-.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-
-.course-card {
-  border: 1.5px solid var(--gray-200); border-radius: 16px;
-  overflow: hidden; background: var(--white);
-  transition: all 0.25s;
+.course-container {
+  max-width: 960px;
+  margin: 0 auto;
 }
-.course-card:hover { border-color: var(--blue-300); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
 
-.course-thumb {
-  height: 100px; display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem;
+.course-promo-card {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  background: radial-gradient(circle at top right, var(--blue-900), #0f172a);
+  border-radius: 24px;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
-.course-thumb.c1 { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
-.course-thumb.c2 { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
-.course-thumb.c3 { background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
-.course-thumb.c4 { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
-.course-thumb.c5 { background: linear-gradient(135deg, #fdf2f8, #fce7f3); }
-.course-thumb.c6 { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
 
-.course-body { padding: 1.25rem; }
-.course-level {
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px;
-  text-transform: uppercase; margin-bottom: 0.5rem;
+.course-promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(37, 99, 235, 0.25);
+  border-color: rgba(96, 165, 250, 0.3);
 }
-.level-beginner { color: #059669; }
-.level-intermediate { color: #d97706; }
-.level-advanced { color: #dc2626; }
 
-.course-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.4rem; line-height: 1.4; }
-.course-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
-.course-meta { display: flex; align-items: center; justify-content: space-between; }
-.course-duration { font-size: 0.75rem; color: var(--text-muted); }
-.course-price {
-  font-size: 0.8rem; font-weight: 700;
-  color: var(--blue-600); background: var(--blue-50);
-  padding: 0.2rem 0.6rem; border-radius: 6px;
+.course-promo-left {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.course-promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #93c5fd;
+  background: rgba(147, 197, 253, 0.1);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.course-promo-left h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: white;
+  line-height: 1.2;
+}
+
+.course-promo-left p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+}
+
+.course-perks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.course-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.course-perk-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #60a5fa;
+}
+
+.course-promo-btn {
+  margin-top: 1.5rem;
+  background: var(--blue-600);
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  transition: all 0.25s ease;
+}
+
+.course-promo-btn:hover {
+  background: var(--blue-500);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+
+.course-promo-right {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(15, 23, 42, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.course-promo-right::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: var(--blue-500);
+  filter: blur(100px);
+  opacity: 0.15;
+  border-radius: 50%;
+}
+
+.course-visual-badge {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 240px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.course-promo-card:hover .course-visual-badge {
+  transform: scale(1.05);
+}
+
+.course-visual-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.course-visual-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: white;
+}
+
+.course-visual-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.course-visual-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid rgba(52, 211, 153, 0.2);
 }
 
 /* ─── MATERI GRATIS ─── */
 .materi { background: var(--gray-50); }
 
-.materi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-
-.materi-card {
-  background: var(--white); border: 1px solid var(--gray-200);
-  border-radius: 14px; padding: 1.5rem;
-  display: flex; flex-direction: column; gap: 0.75rem;
-  transition: all 0.2s;
+.materi-container {
+  max-width: 960px;
+  margin: 0 auto;
 }
-.materi-card:hover { border-color: var(--blue-200); }
 
-.materi-icon {
-  width: 44px; height: 44px; border-radius: 10px;
-  background: var(--blue-50); display: flex; align-items: center;
-  justify-content: center; font-size: 1.2rem;
+.materi-single-card {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+  transition: all 0.3s ease;
 }
-.materi-card h4 { font-size: 0.875rem; font-weight: 700; color: var(--gray-900); line-height: 1.4; }
-.materi-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
-.materi-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 0.7rem; font-weight: 600; color: #059669;
-  background: #ecfdf5; padding: 0.2rem 0.6rem; border-radius: 100px;
+
+.materi-single-card:hover {
+  border-color: var(--blue-300);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.08);
+  transform: translateY(-2px);
+}
+
+.materi-card-left {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.materi-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
   width: fit-content;
 }
-.materi-link {
-  font-size: 0.8rem; font-weight: 600; color: var(--blue-600);
-  text-decoration: none; display: flex; align-items: center; gap: 4px;
-  transition: gap 0.2s;
+
+.materi-card-left h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--gray-900);
+  line-height: 1.25;
 }
-.materi-link:hover { gap: 8px; }
+
+.materi-card-left p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.materi-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.materi-cat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+.materi-cat-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--blue-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+
+.materi-btn-primary {
+  margin-top: 1rem;
+  background: var(--blue-600);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.materi-btn-primary:hover {
+  background: var(--blue-700);
+  transform: translateY(-1px);
+}
+
+.materi-card-right {
+  background: linear-gradient(135deg, var(--blue-50), var(--blue-100));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  border-left: 1px solid var(--gray-100);
+}
+
+.materi-gdrive-preview {
+  background: var(--white);
+  padding: 1.8rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.materi-single-card:hover .materi-gdrive-preview {
+  transform: scale(1.05);
+}
+
+.gdrive-logo-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #fffdf5;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.gdrive-logo-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.gdrive-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  margin-top: 0.2rem;
+}
+
+.gdrive-shared {
+  font-size: 0.75rem;
+  color: var(--blue-600);
+  font-weight: 600;
+  background: var(--blue-50);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
 
 /* ─── MERCHANDISE ─── */
 .merch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
@@ -462,6 +741,100 @@ section { padding: 6rem 6%; }
   transition: background 0.2s;
 }
 .merch-btn:hover { background: var(--blue-700); }
+
+/* ─── FOUNDERS ─── */
+.founders { background: var(--white); }
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.founder-card {
+  display: flex;
+  background: var(--gray-50);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.founder-card:hover {
+  border-color: var(--blue-300);
+  background: var(--white);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.08);
+  transform: translateY(-3px);
+}
+.founder-img-wrapper {
+  width: 170px;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--gray-200);
+  position: relative;
+}
+.founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.founder-card:hover .founder-img {
+  transform: scale(1.05);
+}
+.founder-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.founder-role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--blue-600);
+}
+.founder-info h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--gray-900);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.founder-tag-inline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  background: var(--blue-50);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+.founder-bio {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.founder-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+.founder-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  background: var(--gray-200);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
 
 /* ─── JOIN ─── */
 .join {
@@ -580,26 +953,24 @@ footer {
 }
 
 /* ─── RESPONSIVE ─── */
-
+ 
 /* Tablet landscape */
 @media (max-width: 1024px) {
   .divisi-cards { grid-template-columns: repeat(2, 1fr); }
-  .course-grid { grid-template-columns: repeat(2, 1fr); }
-  .materi-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { gap: 3rem; }
 }
-
+ 
 /* Tablet portrait */
 @media (max-width: 768px) {
   /* Nav */
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   nav { padding: 0 5%; }
-
+ 
   /* Nav logo — hide text, show only logo image on small screens */
   .nav-logo span { display: none; }
   .nav-logo-text { display: none; }
-
+ 
   /* Hero */
   .hero {
     flex-direction: column !important;
@@ -615,55 +986,111 @@ footer {
   .hero-numbers { justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
   .hero-image { width: 100%; }
   .hero-image img { max-width: 100%; border-radius: 14px; }
-
+ 
   /* About */
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-values { grid-template-columns: 1fr 1fr; }
-
+ 
   /* Divisi */
   .divisi-cards { grid-template-columns: 1fr; }
-
+ 
   /* Kegiatan */
   .kegiatan-grid { grid-template-columns: 1fr; }
-
-  /* Course */
-  .course-grid { grid-template-columns: 1fr; }
-
-  /* Materi */
-  .materi-grid { grid-template-columns: repeat(2, 1fr); }
-
+ 
+  /* Course Promo */
+  .course-promo-card {
+    grid-template-columns: 1fr;
+  }
+  .course-promo-left {
+    padding: 2.5rem;
+  }
+  .course-promo-right {
+    padding: 3rem;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+ 
+  /* Materi Promo */
+  .materi-single-card {
+    grid-template-columns: 1fr;
+  }
+  .materi-card-left {
+    padding: 2rem;
+  }
+  .materi-card-right {
+    padding: 2.5rem;
+    border-left: none;
+    border-top: 1px solid var(--gray-200);
+  }
+ 
   /* Merch */
   .merch-grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
-
+ 
+  /* Founders */
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .founder-card {
+    flex-direction: column;
+  }
+  .founder-img-wrapper {
+    width: 100%;
+    height: 240px;
+  }
+  .founder-info {
+    padding: 1.5rem;
+  }
+ 
   /* Footer */
   footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .footer-links { flex-wrap: wrap; gap: 1rem; }
-
+ 
   /* Section padding */
   section { padding: 4rem 5%; }
 }
-
+ 
 /* Mobile */
 @media (max-width: 480px) {
   nav { height: 60px; }
   .mobile-menu { top: 60px; }
-
+ 
   .hero { padding: 6rem 5% 3rem !important; }
   .hero h1 { font-size: clamp(1.9rem, 7vw, 2.4rem); letter-spacing: -1px; }
   .hero-numbers { gap: 1rem; }
   .num-val { font-size: 1.6rem; }
-
+ 
   .about-values { grid-template-columns: 1fr; }
-
-  .materi-grid { grid-template-columns: 1fr; }
-
+ 
+  .course-promo-left {
+    padding: 1.5rem;
+  }
+  .course-perks {
+    grid-template-columns: 1fr;
+  }
+  .course-promo-btn {
+    width: 100%;
+    justify-content: center;
+  }
+ 
+  .materi-card-left {
+    padding: 1.5rem;
+  }
+  .materi-categories {
+    grid-template-columns: 1fr;
+  }
+  .materi-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+ 
   .kegiatan-card { flex-direction: column; gap: 1rem; }
-
+ 
   .section-title { font-size: 1.7rem; }
-
+ 
   .join-platforms { flex-direction: column; align-items: center; }
   .platform-btn { width: 100%; justify-content: center; }
-
+ 
   footer { padding: 2rem 5%; }
   .footer-links { gap: 0.75rem; }
 }
