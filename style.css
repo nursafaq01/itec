@@ -1099,7 +1099,7 @@ footer {
  
   /* Hero */
   .hero {
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
     padding: 7rem 5% 4rem !important;
     gap: 2.5rem !important;
     text-align: center;
