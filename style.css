@@ -161,6 +161,17 @@ nav {
   font-family: 'DM Serif Display', serif;
   font-size: 1.15rem; color: var(--blue-700);
   letter-spacing: -0.3px; text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.nav-logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+.nav-logo-img:hover {
+  transform: scale(1.03);
 }
 .nav-logo span { color: var(--gray-400); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 400; margin-left: 6px; }
 
@@ -1083,9 +1094,8 @@ footer {
   .hamburger { display: flex; }
   nav { padding: 0 5%; }
  
-  /* Nav logo — hide text, show only logo image on small screens */
-  .nav-logo span { display: none; }
-  .nav-logo-text { display: none; }
+  /* Nav logo */
+  .nav-logo-img { height: 48px; }
  
   /* Hero */
   .hero {
@@ -1169,6 +1179,7 @@ footer {
 /* Mobile */
 @media (max-width: 480px) {
   nav { height: 60px; }
+  .nav-logo-img { height: 44px; }
   .mobile-menu { top: 60px; }
  
   .hero { padding: 6rem 5% 3rem !important; }
