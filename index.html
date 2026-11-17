@@ -1,520 +1,389 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IT Enthusiast Community</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script>
-  (function() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add('dark-theme');
-    }
-  })();
-</script>
+<meta name="description" content="Komunitas teknologi informasi gratis untuk belajar Cybersecurity, Networking, dan Artificial Intelligence bersama.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F6; --surface:#FFFFFF; --text:#101827; --mute:#556078; --line:#CBD3E1;
+  --cobalt:#2443E6; --cobalt-text:#2443E6; --sun:#F6C945; --node:#101827; --on-node:#FFFFFF;
+  --display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1220; --surface:#151C2F; --text:#E8ECF5; --mute:#9BA6BD; --line:#2A3550;
+    --cobalt-text:#7D93FF; --node:#E8ECF5; --on-node:#0D1220; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1220; --surface:#151C2F; --text:#E8ECF5; --mute:#9BA6BD; --line:#2A3550;
+  --cobalt-text:#7D93FF; --node:#E8ECF5; --on-node:#0D1220; color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--text);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cobalt-text);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,6.4vw,4.9rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700;max-width:18ch}
+h3{font-size:1.5rem;font-weight:700}
+p{max-width:62ch}
+section{padding:clamp(4rem,9vw,7rem) 0}
+.lead{color:var(--mute);margin-top:1rem}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:1.5rem;min-height:68px}
+.brand{display:flex;align-items:center;gap:.6rem;font:700 1.05rem var(--display);text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:8px;object-fit:cover}
+nav{display:flex;gap:1.4rem;margin-left:auto;font-size:.95rem;font-weight:500}
+nav a{text-decoration:none;color:var(--mute);padding:.3rem 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--text);border-color:var(--sun)}
+.btn{display:inline-block;font:600 .98rem var(--body);padding:.8rem 1.35rem;border-radius:6px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--cobalt);color:#fff}
+.btn-sun{background:var(--sun);color:#101827}
+.btn-line{border-color:var(--text);color:var(--text);background:transparent}
+.btn-sm{padding:.5rem 1rem;font-size:.9rem}
+.mode{background:none;border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
+
+/* hero */
+.hero{padding-top:clamp(2.5rem,6vw,5rem)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center}
+.hero p{margin:1.5rem 0 2rem;font-size:1.2rem;color:var(--mute)}
+.actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.facts{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.95rem;color:var(--mute)}
+.facts b{display:block;font:700 1.7rem var(--display);color:var(--text)}
+.graph{width:100%;height:auto}
+.graph text{font-family:var(--display);font-weight:700}
+.graph .edge{stroke:var(--line);stroke-width:2}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about p+p{margin-top:1rem}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:2rem 2.5rem;margin-top:2.2rem}
+.values h3{font-size:1.15rem}
+.values p{font-size:.97rem;color:var(--mute)}
+.about img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* divisions */
+.rows{margin-top:2.8rem;border-top:2px solid var(--text)}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:2rem;align-items:center;padding:2rem 0;border-bottom:1px solid var(--line)}
+.row h3{display:flex;align-items:center;gap:.9rem;font-size:clamp(1.5rem,3vw,2.1rem)}
+.row h3 i{width:18px;height:18px;border-radius:4px;flex:none;background:var(--c)}
+.row p{color:var(--mute);font-size:1rem}
+.row small{display:block;margin-top:.6rem;font-size:.9rem;color:var(--text);font-weight:500}
+.count{text-align:right;font-size:.9rem;color:var(--mute)}
+.count b{display:block;font:700 1.9rem var(--display);color:var(--text)}
+
+/* course */
+.course{background:var(--cobalt);color:#fff}
+.course .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center}
+.course .lead{color:#D7DEFF}
+.ticks{list-style:none;padding:0;margin:1.8rem 0 2.2rem;display:grid;gap:.7rem}
+.ticks li{padding-left:1.9rem;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.45em;width:1.05rem;height:.55rem;border-left:3px solid var(--sun);border-bottom:3px solid var(--sun);transform:rotate(-45deg)}
+.screen{background:#0B1030;border-radius:10px;padding:1.2rem 1.2rem 1.6rem;box-shadow:10px 10px 0 var(--sun)}
+.screen .dots{display:flex;gap:.4rem;margin-bottom:1rem}
+.screen .dots span{width:10px;height:10px;border-radius:50%;background:#3A4577}
+.screen .play{aspect-ratio:16/9;border-radius:6px;background:linear-gradient(135deg,#1A2466,#2443E6);display:grid;place-items:center}
+.screen .play svg{width:56px;fill:var(--sun)}
+.screen p{margin-top:1rem;font-size:.92rem;color:#B9C3F5}
+
+/* materi */
+.materi .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center}
+.folder{background:var(--surface);border:2px solid var(--text);border-radius:4px 14px 14px 14px;padding:1.8rem;position:relative;margin-top:1.2rem}
+.folder::before{content:"Google Drive";position:absolute;top:-1.95rem;left:-2px;background:var(--text);color:var(--paper);font-size:.82rem;font-weight:600;padding:.35rem 1rem;border-radius:8px 8px 0 0}
+.folder ul{list-style:none;padding:0;display:grid;gap:.9rem;margin-bottom:1.6rem}
+.folder li{display:flex;gap:.8rem;align-items:baseline;padding-bottom:.9rem;border-bottom:1px dashed var(--line)}
+.folder li span{font-weight:600}
+.folder li em{font-style:normal;color:var(--mute);font-size:.92rem}
+
+/* merch */
+.merch-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.8rem}
+.item{display:grid;grid-template-columns:1fr;gap:1.2rem}
+.item img{aspect-ratio:1/1;object-fit:cover;width:100%;border-radius:10px;background:var(--line)}
+.item h3{font-size:1.35rem}
+.item p{color:var(--mute);font-size:.97rem;margin:.3rem 0 .9rem}
+.price{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.price b{font:700 1.3rem var(--display)}
+
+/* founders */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.8rem}
+.person{display:grid;grid-template-columns:150px 1fr;gap:1.4rem;align-items:start}
+.person img{width:150px;height:190px;object-fit:cover;border-radius:75px 75px 10px 10px;background:var(--line)}
+.person .role{font-size:.9rem;font-weight:600;color:var(--cobalt-text);margin-bottom:.2rem}
+.person p{font-size:.97rem;color:var(--mute);margin-top:.6rem}
+
+/* join */
+.join{background:var(--sun);color:#101827}
+.join .wrap{display:flex;gap:2.5rem;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.join p{margin-top:.8rem;max-width:44ch}
+.join .btn-line{border-color:#101827;color:#101827}
+.join .btn-main{background:#101827;color:#fff}
+
+footer{padding:2.2rem 0;font-size:.92rem;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero .wrap,.about .wrap,.course .wrap,.materi .wrap,.people{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:.8rem}
+  .count{text-align:left}
+  .bar{flex-wrap:wrap;padding:.6rem 0;gap:.6rem 1rem}
+  nav{order:3;width:100%;margin:0;overflow-x:auto;gap:1.2rem;padding-bottom:.3rem}
+  .bar .btn-sm{margin-left:auto}
+  .hero .art{max-width:420px}
+}
+@media (max-width:560px){
+  .merch-grid,.values{grid-template-columns:1fr}
+  .person{grid-template-columns:110px 1fr}
+  .person img{width:110px;height:150px;border-radius:55px 55px 10px 10px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#" style="display:flex;align-items:center;">
-    <img src="https://adelwinnugroho.my.id/img/itenthusiast.png" alt="ITEC Logo" class="nav-logo-img">
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">Tentang</a></li>
-    <li><a href="#divisi">Divisi</a></li>
-    <!--<li><a href="#kegiatan">Kegiatan</a></li>-->
-    <li><a href="#course">Course</a></li>
-    <li><a href="#materi">Materi</a></li>
-    <li><a href="#merch">Merch</a></li>
-  </ul>
-  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
-    <span class="theme-icon">🌙</span>
-  </button>
-  <button class="nav-cta" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Gabung Komunitas</button>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMenu()">Tentang</a>
-  <a href="#divisi" onclick="closeMenu()">Divisi</a>
-  <a href="#kegiatan" onclick="closeMenu()">Kegiatan</a>
-  <a href="#course" onclick="closeMenu()">Course</a>
-  <a href="#materi" onclick="closeMenu()">Materi</a>
-  <a href="#merch" onclick="closeMenu()">Merch</a>
-  <a href="#join" class="mobile-menu-cta" onclick="closeMenu()">Gabung Komunitas</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" style="display:flex;align-items:center;justify-content:space-between;gap:3rem;">
-  <div class="hero-bg-dots"></div>
-  <div class="hero-content">
-    <!--<div class="hero-eyebrow">Komunitas IT Indonesia</div>-->
-    <h1>Belajar, Bertumbuh,<br>dan <em>Berkolaborasi</em><br>Bersama</h1>
-    <p>IT Enthusiast Community adalah rumah bagi siapa saja yang ingin mendalami dunia teknologi — dari Cybersecurity, Networking, hingga Artificial Intelligence.</p>
-    <div class="hero-btns">
-      <a href="#join" class="btn-blue">Gabung Sekarang</a>
-      <a href="#divisi" class="btn-outline">Lihat Divisi →</a>
-    </div>
-    <div class="hero-numbers">
-      <div class="num-item">
-        <div class="num-val">5K+</div>
-        <div class="num-label">Anggota Aktif</div>
-      </div>
-      <div class="num-item">
-        <div class="num-val">3</div>
-        <div class="num-label">Divisi Keahlian</div>
-      </div>
-      <div class="num-item">
-        <div class="num-val">50+</div>
-        <div class="num-label">Mentor & Expert</div>
-      </div>
-      <div class="num-item">
-        <div class="num-val">Gratis</div>
-        <div class="num-label">Untuk Bergabung</div>
-      </div>
-    </div>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top"><img src="logo_icon.png" alt="" width="34" height="34">IT Enthusiast Community</a>
+    <nav aria-label="Menu utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#divisi">Divisi</a>
+      <a href="#course">Course</a>
+      <a href="#materi">Materi</a>
+      <a href="#merch">Merch</a>
+      <a href="#founders">Founders</a>
+    </nav>
+    <button class="mode" id="mode" type="button" aria-label="Ganti tema terang atau gelap">◐</button>
+    <a class="btn btn-main btn-sm" href="#gabung">Gabung gratis</a>
   </div>
-  <div class="hero-image">
-    <img src="https://it-enthusiast.site/logo%20itec.jpg" alt="IT Enthusiast Community" />
-  </div>
-</section>
-<section id="about" class="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="section-label fade-in">Tentang Kami</div>
-      <h2 class="section-title fade-in">Komunitas yang Tumbuh Bersama Teknologi</h2>
-      <p class="fade-in">IT Enthusiast Community (ITEC) adalah komunitas teknologi informasi yang terbuka untuk semua kalangan — pelajar, mahasiswa, maupun profesional. Kami percaya belajar IT lebih efektif ketika dilakukan bersama.</p>
-      <p class="fade-in">Melalui tiga divisi utama, kami menyediakan ruang belajar, diskusi, mentoring, dan kolaborasi yang nyata dan terstruktur.</p>
-      <div class="about-values fade-in">
-        <div class="value-item">
-          <div class="value-icon">🤝</div>
-          <div class="value-name">Kolaboratif</div>
-          <div class="value-desc">Berbagi ilmu tanpa ego</div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">📈</div>
-          <div class="value-name">Progresif</div>
-          <div class="value-desc">Terus belajar & berkembang</div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">🌍</div>
-          <div class="value-name">Inklusif</div>
-          <div class="value-desc">Terbuka untuk semua kalangan</div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">⚡</div>
-          <div class="value-name">Praktis</div>
-          <div class="value-desc">Fokus pada skill nyata</div>
-        </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Belajar, bertumbuh, dan berkolaborasi bersama.</h1>
+      <p>IT Enthusiast Community adalah rumah bagi siapa saja yang ingin mendalami teknologi, dari Cybersecurity dan Networking sampai Artificial Intelligence.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#gabung">Gabung sekarang</a>
+        <a class="btn btn-line" href="#divisi">Lihat divisi</a>
+      </div>
+      <div class="facts">
+        <div><b>5K+</b>anggota aktif</div>
+        <div><b>3</b>divisi keahlian</div>
+        <div><b>50+</b>mentor dan expert</div>
+        <div><b>Gratis</b>untuk bergabung</div>
       </div>
     </div>
-    <div class="about-visual fade-in">
-      <h3>Tiga Divisi Keahlian</h3>
-      <ul class="divisi-list">
-        <li class="divisi-item">
-          <div class="divisi-dot" style="background:#60a5fa"></div>
-          <div>
-            <p>Cybersecurity</p>
-            <small>Ethical hacking, forensik, CTF & keamanan siber</small>
-          </div>
-        </li>
-        <li class="divisi-item">
-          <div class="divisi-dot" style="background:#34d399"></div>
-          <div>
-            <p>Networking</p>
-            <small>Infrastruktur jaringan, SDN & cloud infrastructure</small>
-          </div>
-        </li>
-        <li class="divisi-item">
-          <div class="divisi-dot" style="background:#c084fc"></div>
-          <div>
-            <p>Artificial Intelligence</p>
-            <small>ML, deep learning, LLM & computer vision</small>
-          </div>
-        </li>
-      </ul>
+    <div class="art">
+      <svg class="graph" viewBox="0 0 520 460" role="img" aria-label="Diagram ITEC sebagai pusat yang terhubung ke tiga divisi: Cybersecurity, Networking, dan Artificial Intelligence">
+        <g class="edge">
+          <path id="p1" d="M260 230 L100 100" fill="none"/>
+          <path id="p2" d="M260 230 L430 120" fill="none"/>
+          <path id="p3" d="M260 230 L300 385" fill="none"/>
+          <path d="M100 100 L40 190M100 100 L170 40M100 100 L30 70" fill="none"/>
+          <path d="M430 120 L490 60M430 120 L488 190M430 120 L380 50" fill="none"/>
+          <path d="M300 385 L210 420M300 385 L390 425M300 385 L360 320" fill="none"/>
+        </g>
+        <g fill="var(--line)">
+          <circle cx="40" cy="190" r="8"/><circle cx="170" cy="40" r="8"/><circle cx="30" cy="70" r="6"/>
+          <circle cx="490" cy="60" r="8"/><circle cx="488" cy="190" r="6"/><circle cx="380" cy="50" r="8"/>
+          <circle cx="210" cy="420" r="8"/><circle cx="390" cy="425" r="6"/><circle cx="360" cy="320" r="8"/>
+        </g>
+        <circle cx="100" cy="100" r="40" fill="var(--text)"/>
+        <circle cx="430" cy="120" r="40" fill="var(--cobalt)"/>
+        <circle cx="300" cy="385" r="40" fill="var(--sun)"/>
+        <circle cx="260" cy="230" r="56" fill="var(--node)"/>
+        <text x="260" y="238" text-anchor="middle" font-size="24" fill="var(--on-node)">ITEC</text>
+        <text x="100" y="105" text-anchor="middle" font-size="13" fill="var(--paper)">Cyber</text>
+        <text x="430" y="125" text-anchor="middle" font-size="13" fill="#fff">Network</text>
+        <text x="300" y="390" text-anchor="middle" font-size="14" fill="#101827">AI</text>
+        <g class="packet" fill="var(--sun)" stroke="#101827" stroke-width="2">
+          <circle r="7"><animateMotion dur="3.4s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear"><mpath href="#p1"/></animateMotion></circle>
+          <circle r="7"><animateMotion dur="4.1s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear"><mpath href="#p2"/></animateMotion></circle>
+          <circle r="7"><animateMotion dur="3.8s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear"><mpath href="#p3"/></animateMotion></circle>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- DIVISI -->
+<section class="about" id="tentang">
+  <div class="wrap">
+    <div>
+      <h2>Komunitas yang tumbuh bersama teknologi</h2>
+      <p class="lead">ITEC adalah komunitas teknologi informasi yang terbuka untuk pelajar, mahasiswa, dan profesional. Kami percaya belajar IT lebih efektif kalau dilakukan bersama.</p>
+      <p class="lead">Lewat tiga divisi, kami menyediakan ruang belajar, diskusi, mentoring, dan kolaborasi yang nyata dan terstruktur.</p>
+      <div class="values">
+        <div><h3>Kolaboratif</h3><p>Berbagi ilmu tanpa ego.</p></div>
+        <div><h3>Progresif</h3><p>Terus belajar dan berkembang.</p></div>
+        <div><h3>Inklusif</h3><p>Terbuka untuk semua kalangan.</p></div>
+        <div><h3>Praktis</h3><p>Fokus pada skill yang dipakai di dunia kerja.</p></div>
+      </div>
+    </div>
+    <img src="logo%20itec.jpg" alt="Logo IT Enthusiast Community" loading="lazy">
+  </div>
+</section>
+
 <section id="divisi">
-  <div class="section-head">
-    <div class="section-label fade-in">Divisi</div>
-    <h2 class="section-title fade-in">Pilih Jalur Keahlianmu</h2>
-    <p class="section-sub fade-in">Setiap divisi punya komunitas, konten, dan event tersendiri yang aktif setiap bulan.</p>
-  </div>
-  <div class="divisi-cards">
-
-    <div class="divisi-card cyber fade-in">
-      <div class="dc-icon">🛡️</div>
-      <h3>Cybersecurity</h3>
-      <p>Pelajari seni pertahanan dan serangan digital. Dari ethical hacking, forensik, hingga kepatuhan keamanan siber.</p>
-      <div class="dc-tags">
-        <span class="dc-tag">Ethical Hacking</span>
-        <span class="dc-tag">Pentest</span>
-        <span class="dc-tag">CTF</span>
-        <span class="dc-tag">SOC Analyst</span>
-        <span class="dc-tag">OSCP</span>
-      </div>
-      <div class="dc-footer">
-        <div class="dc-members"><strong>820</strong> anggota</div>
-        <button class="dc-btn">Gabung</button>
-      </div>
-    </div>
-
-    <div class="divisi-card net fade-in" style="transition-delay:0.1s">
-      <div class="dc-icon">🌐</div>
-      <h3>Networking</h3>
-      <p>Kuasai infrastruktur jaringan modern mulai dari routing & switching hingga SDN dan cloud infrastructure.</p>
-      <div class="dc-tags">
-        <span class="dc-tag">Cisco / MikroTik</span>
-        <span class="dc-tag">SDN</span>
-        <span class="dc-tag">CCNA / CCNP</span>
-        <span class="dc-tag">BGP / OSPF</span>
-      </div>
-      <div class="dc-footer">
-        <div class="dc-members"><strong>940</strong> anggota</div>
-        <button class="dc-btn">Gabung</button>
-      </div>
-    </div>
-
-    <div class="divisi-card ai fade-in" style="transition-delay:0.2s">
-      <div class="dc-icon">🤖</div>
-      <h3>Artificial Intelligence</h3>
-      <p>Dari machine learning dasar hingga LLM & GenAI. Bangun dan deploy solusi AI untuk kebutuhan nyata.</p>
-      <div class="dc-tags">
-        <span class="dc-tag">Machine Learning</span>
-        <span class="dc-tag">Deep Learning</span>
-        <span class="dc-tag">LLM / GenAI</span>
-        <span class="dc-tag">MLOps</span>
-      </div>
-      <div class="dc-footer">
-        <div class="dc-members"><strong>640</strong> anggota</div>
-        <button class="dc-btn">Gabung</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- KEGIATAN 
-<section id="kegiatan" class="kegiatan">
-  <div class="section-head">
-    <div class="section-label fade-in">Kegiatan</div>
-    <h2 class="section-title fade-in">Agenda Komunitas</h2>
-    <p class="section-sub fade-in">Webinar, workshop, CTF, dan meetup rutin setiap bulan untuk semua level.</p>
-  </div>
-  <div class="kegiatan-grid">
-
-    <div class="kegiatan-card fade-in">
-      <div class="kg-date"><div class="day">25</div><div class="month">Mei</div></div>
-      <div class="kg-info">
-        <span class="kg-type webinar">Webinar</span>
-        <h4>Red Team vs Blue Team: Simulasi Serangan APT Modern</h4>
-        <p>Simulasi nyata bagaimana tim merah melancarkan serangan dan tim biru merespons secara real-time.</p>
-        <div class="kg-meta">⏰ 19:00 WIB · Online · Gratis</div>
-      </div>
-    </div>
-
-    <div class="kegiatan-card fade-in" style="transition-delay:0.1s">
-      <div class="kg-date"><div class="day">01</div><div class="month">Jun</div></div>
-      <div class="kg-info">
-        <span class="kg-type workshop">Workshop</span>
-        <h4>Hands-On: SD-WAN dengan Open Source Tools</h4>
-        <p>Konfigurasi SD-WAN menggunakan VyOS dan OpenWRT langsung di lab virtual yang sudah disiapkan.</p>
-        <div class="kg-meta">⏰ 09:00 WIB · Online · Gratis untuk anggota</div>
-      </div>
-    </div>
-
-    <div class="kegiatan-card fade-in" style="transition-delay:0.2s">
-      <div class="kg-date"><div class="day">07</div><div class="month">Jun</div></div>
-      <div class="kg-info">
-        <span class="kg-type ctf">CTF</span>
-        <h4>NexCTF 2025 — Capture The Flag Nasional</h4>
-        <p>Kompetisi CTF terbuka untuk pelajar dan profesional. Total hadiah Rp 15.000.000.</p>
-        <div class="kg-meta">⏰ 2 hari · Online · Pendaftaran gratis</div>
-      </div>
-    </div>
-
-    <div class="kegiatan-card fade-in" style="transition-delay:0.3s">
-      <div class="kg-date"><div class="day">15</div><div class="month">Jun</div></div>
-      <div class="kg-info">
-        <span class="kg-type meetup">Meetup</span>
-        <h4>ITEC Meetup Juni — Networking & Sharing Session</h4>
-        <p>Kumpul bareng anggota komunitas, sharing pengalaman, dan memperluas jaringan profesional IT.</p>
-        <div class="kg-meta">⏰ 13:00 WIB · Offline · Surabaya</div>
-      </div>
-    </div>
-
-  </div>
-</section> -->
-
-<!-- COURSE / TRAINING -->
-<section id="course">
-  <div class="section-head">
-    <div class="section-label fade-in">Course</div>
-    <h2 class="section-title fade-in">Program Kursus Profesional & Terarah</h2>
-    <p class="section-sub fade-in">Tingkatkan karir teknologimu lewat kelas intensif yang disusun secara komprehensif.</p>
-  </div>
-  
-  <div class="course-container fade-in">
-    <div class="course-promo-card">
-      <div class="course-promo-left">
-        <div class="course-promo-badge">✦ Program Unggulan ITEC</div>
-        <h3>Ingin Belajar Lebih Mendalam & Terstruktur?</h3>
-        <p>Bagi Anda yang berkomitmen menguasai keahlian IT secara menyeluruh dan siap kerja, kami menyediakan program <strong>Course Khusus</strong>. Dapatkan materi super lengkap mulai dari tingkat dasar hingga mahir, lengkap dengan bimbingan langsung dari instruktur handal, ulasan tugas, studi kasus nyata, dan sertifikat kelulusan.</p>
-        
-        <div class="course-perks">
-          <div class="course-perk-item">
-            <span class="course-perk-icon">✓</span>
-            <span>Kurikulum Standar Industri</span>
-          </div>
-          <div class="course-perk-item">
-            <span class="course-perk-icon">✓</span>
-            <span>Sertifikat Resmi Kompetensi</span>
-          </div>
-          <div class="course-perk-item">
-            <span class="course-perk-icon">✓</span>
-            <span>Sesi Live Mentoring & Review</span>
-          </div>
-          <div class="course-perk-item">
-            <span class="course-perk-icon">✓</span>
-            <span>Akses Kelas Selamanya (Lifetime)</span>
-          </div>
-        </div>
-        
-        <a href="https://course.it-enthusiast.site" target="_blank" rel="noopener noreferrer" class="course-promo-btn">
-          Mulai Belajar di Course ↗
-        </a>
-      </div>
-      <div class="course-promo-right">
-        <div class="course-visual-badge">
-          <div class="course-visual-icon">🚀</div>
-          <span class="course-visual-title">ITEC Learning Platform</span>
-          <span class="course-visual-desc">Interactive Class & Video On-Demand</span>
-          <span class="course-visual-tag">Professional Path</span>
-        </div>
-      </div>
+  <div class="wrap">
+    <h2>Pilih jalur keahlianmu</h2>
+    <p class="lead">Setiap divisi punya grup diskusi, konten, dan event sendiri yang berjalan tiap bulan.</p>
+    <div class="rows">
+      <article class="row" style="--c:var(--text)">
+        <h3><i></i>Cybersecurity</h3>
+        <div><p>Belajar sisi pertahanan dan serangan digital: ethical hacking, forensik, sampai kepatuhan keamanan siber.</p><small>Ethical Hacking, Pentest, CTF, SOC Analyst, OSCP</small></div>
+        <div class="count"><b>820</b>anggota</div>
+      </article>
+      <article class="row" style="--c:var(--cobalt)">
+        <h3><i></i>Networking</h3>
+        <div><p>Kuasai infrastruktur jaringan modern, dari routing dan switching sampai SDN dan cloud infrastructure.</p><small>Cisco dan MikroTik, SDN, CCNA dan CCNP, BGP dan OSPF</small></div>
+        <div class="count"><b>940</b>anggota</div>
+      </article>
+      <article class="row" style="--c:var(--sun)">
+        <h3><i></i>Artificial Intelligence</h3>
+        <div><p>Dari machine learning dasar sampai LLM dan GenAI. Bangun dan deploy solusi AI untuk kebutuhan nyata.</p><small>Machine Learning, Deep Learning, LLM dan GenAI, MLOps</small></div>
+        <div class="count"><b>640</b>anggota</div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- MATERI GRATIS -->
-<section id="materi" class="materi">
-  <div class="section-head">
-    <div class="section-label fade-in">Materi Gratis</div>
-    <h2 class="section-title fade-in">Belajar Tanpa Batas, Tanpa Biaya</h2>
-    <p class="section-sub fade-in">Ratusan materi gratis yang bisa langsung kamu akses setelah bergabung komunitas.</p>
-  </div>
-  
-  <div class="materi-container fade-in">
-    <div class="materi-single-card">
-      <div class="materi-card-left">
-        <div class="materi-card-badge">✓ Akses Google Drive Gratis</div>
-        <h3>E-Book, Modul & Cheat Sheet Lengkap</h3>
-        <p>Kami menyediakan perpustakaan digital khusus untuk mendukung proses belajarmu. Dapatkan e-book berkualitas tinggi, roadmap belajar terstruktur, rangkuman perintah, hingga materi bootcamp gratis.</p>
-        
-        <div class="materi-categories">
-          <div class="materi-cat-item">
-            <span class="materi-cat-icon">🤖</span>
-            <span>Artificial Intelligence & ML</span>
-          </div>
-          <div class="materi-cat-item">
-            <span class="materi-cat-icon">🛡️</span>
-            <span>Cybersecurity & Ethical Hacking</span>
-          </div>
-          <div class="materi-cat-item">
-            <span class="materi-cat-icon">💻</span>
-            <span>Programming & Software Engineering</span>
-          </div>
-          <div class="materi-cat-item">
-            <span class="materi-cat-icon">🌐</span>
-            <span>Networking & Cloud Infrastructure</span>
-          </div>
-        </div>
-        
-        <a href="https://drive.google.com/drive/folders/1Owcx8GiqA0IBj8JUUFs4RqbO1tUKIkRO?usp=drive_link" target="_blank" rel="noopener noreferrer" class="materi-btn-primary">
-          Buka Google Drive Materi ↗
-        </a>
-      </div>
-      <div class="materi-card-right">
-        <div class="materi-gdrive-preview">
-          <div class="gdrive-logo-icon">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-            </svg>
-          </div>
-          <span class="gdrive-text">Google Drive</span>
-          <span class="gdrive-shared">Shared Folder</span>
-        </div>
-      </div>
+<section class="course" id="course">
+  <div class="wrap">
+    <div>
+      <h2>Ingin belajar lebih dalam dan terstruktur?</h2>
+      <p class="lead">Program Course Khusus untuk kamu yang ingin menguasai IT secara menyeluruh dan siap kerja: materi dari dasar sampai mahir, bimbingan instruktur, ulasan tugas, dan studi kasus nyata.</p>
+      <ul class="ticks">
+        <li>Kurikulum standar industri</li>
+        <li>Sertifikat kompetensi resmi</li>
+        <li>Sesi live mentoring dan review</li>
+        <li>Akses kelas selamanya</li>
+      </ul>
+      <a class="btn btn-sun" href="https://course.it-enthusiast.site" target="_blank" rel="noopener">Mulai belajar di Course</a>
+    </div>
+    <div class="screen" aria-hidden="true">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <p>ITEC Learning Platform: kelas interaktif dan video on-demand.</p>
     </div>
   </div>
 </section>
 
-<!-- MERCHANDISE -->
+<section class="materi" id="materi">
+  <div class="wrap">
+    <div>
+      <h2>Belajar tanpa batas, tanpa biaya</h2>
+      <p class="lead">Ratusan materi gratis bisa kamu akses setelah bergabung: e-book, modul, roadmap belajar, cheat sheet, sampai materi bootcamp.</p>
+    </div>
+    <div class="folder">
+      <ul>
+        <li><span>Artificial Intelligence dan ML</span><em>e-book, modul</em></li>
+        <li><span>Cybersecurity dan Ethical Hacking</span><em>cheat sheet, roadmap</em></li>
+        <li><span>Programming dan Software Engineering</span><em>modul, bootcamp</em></li>
+        <li><span>Networking dan Cloud Infrastructure</span><em>rangkuman perintah</em></li>
+      </ul>
+      <a class="btn btn-main" href="https://drive.google.com/drive/folders/1Owcx8GiqA0IBj8JUUFs4RqbO1tUKIkRO?usp=drive_link" target="_blank" rel="noopener">Buka folder materi</a>
+    </div>
+  </div>
+</section>
+
 <section id="merch">
-  <div class="section-head">
-    <div class="section-label fade-in">Merchandise</div>
-    <h2 class="section-title fade-in">Tunjukkan Identitasmu sebagai IT Enthusiast</h2>
-    <p class="section-sub fade-in">Merchandise eksklusif komunitas — hanya tersedia untuk anggota ITEC.</p>
-  </div>
-  <div class="merch-grid-2">
-
-    <div class="merch-card-2 fade-in">
-      <div class="merch-img-2">
-        <img src="https://it-enthusiast.site/Kaos%20berkerah.jpg" alt="Kaos IT Berkerah" />
-      </div>
-      <div class="merch-body">
-        <h4>Kaos IT Berkerah</h4>
-        <small>Cotton Combed 30s Premium. Cocok untuk acara formal komunitas dan kantor.</small>
-        <div class="merch-footer">
-          <span class="merch-price">70k – 80k</span>
-          <button class="merch-btn">Pesan Sekarang</button>
+  <div class="wrap">
+    <h2>Pakai identitasmu sebagai IT Enthusiast</h2>
+    <p class="lead">Merchandise komunitas, khusus untuk anggota ITEC.</p>
+    <div class="merch-grid">
+      <article class="item">
+        <img src="Kaos%20berkerah.jpg" alt="Kaos IT berkerah" loading="lazy">
+        <div>
+          <h3>Kaos IT berkerah</h3>
+          <p>Cotton Combed 30s Premium. Pas untuk acara formal komunitas dan kantor.</p>
+          <div class="price"><b>Rp70-80 rb</b><a class="btn btn-line btn-sm" href="#gabung">Pesan</a></div>
         </div>
-      </div>
-    </div>
-
-    <div class="merch-card-2 fade-in" style="transition-delay:0.1s">
-      <div class="merch-img-2">
-        <img src="https://it-enthusiast.site/Kaos%20biasa.jpg" alt="Kaos IT Biasa" />
-      </div>
-      <div class="merch-body">
-        <h4>Kaos IT Biasa</h4>
-        <small>Bahan Cotton Premium. Cocok untuk acara kumpul, coding, dan kegiatan sehari-hari.</small>
-        <div class="merch-footer">
-          <span class="merch-price">60k – 70k</span>
-          <button class="merch-btn">Pesan Sekarang</button>
+      </article>
+      <article class="item">
+        <img src="Kaos%20biasa.jpg" alt="Kaos IT biasa" loading="lazy">
+        <div>
+          <h3>Kaos IT biasa</h3>
+          <p>Bahan Cotton Premium. Pas untuk kumpul, ngoding, dan harian.</p>
+          <div class="price"><b>Rp60-70 rb</b><a class="btn btn-line btn-sm" href="#gabung">Pesan</a></div>
         </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOUNDERS -->
-<section id="founders" class="founders">
-  <div class="section-head" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-    <div class="section-label fade-in" style="justify-content: center; width: fit-content;">Founders</div>
-    <h2 class="section-title fade-in">Di Balik Layar ITEC</h2>
-    <p class="section-sub fade-in" style="margin: 0 auto; text-align: center;">Tokoh-tokoh inspiratif di balik pendirian dan perkembangan IT Enthusiast Community.</p>
-  </div>
-  
-  <div class="founders-grid fade-in">
-    <!-- Founder Card -->
-    <div class="founder-card">
-      <div class="founder-img-wrapper">
-        <img src="foto-nursafaq.jpg" alt="Moch Nursafaq #MTCINE" class="founder-img">
-      </div>
-      <div class="founder-info">
-        <span class="founder-role">Founder</span>
-        <h4>Moch Nursafaq <span class="founder-tag-inline">#MTCINE</span></h4>
-        <p class="founder-bio">Inisiator utama ITEC dengan keahlian mendalam di bidang Computer Networking & Network Security. Berkomitmen membangun ekosistem belajar yang suportif bagi generasi IT Indonesia.</p>
-        <div class="founder-socials">
-          <span class="founder-badge">Network Architect</span>
-          <span class="founder-badge">Mentor</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Co-Founder Card -->
-    <div class="founder-card">
-      <div class="founder-img-wrapper">
-        <img src="foto-adelwin.jpg" alt="Adelwin Nugroho Liandy" class="founder-img">
-      </div>
-      <div class="founder-info">
-        <span class="founder-role">Co-Founder</span>
-        <h4>Adelwin Nugroho Liandy</h4>
-        <p class="founder-bio">Co-Founder yang berfokus pada integrasi sistem platform, strategi kurikulum, pengembangan komunitas ITEC, serta menjalin kerja sama strategis dengan praktisi teknologi.</p>
-        <div class="founder-socials">
-          <span class="founder-badge">Full Stack Engineer</span>
-          <span class="founder-badge">Community Builder</span>
-        </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- JOIN -->
-<section id="join" class="join">
-  <div class="join-inner">
-    <div class="section-label fade-in">Bergabung</div>
-    <h2 class="section-title fade-in">Siap Jadi Bagian dari ITEC?</h2>
-    <p class="fade-in">Gratis untuk bergabung. Pilih platform yang paling nyaman untukmu dan langsung terhubung dengan ribuan anggota aktif dari seluruh Indonesia.</p>
-    <div class="join-platforms fade-in">
-      <a href="https://chat.whatsapp.com/KBejc9isPiYHQfjhAVfVUH" class="platform-btn wa" target="_blank">
-        <span class="platform-icon">💬</span>
-        Gabung via WhatsApp
-      </a>
-      <a href="https://t.me/IT_enthusiast_Community" class="platform-btn tg" target="_blank">
-        <span class="platform-icon">✈️</span>
-        Gabung via Telegram
-      </a>
+<section id="founders">
+  <div class="wrap">
+    <h2>Orang di balik ITEC</h2>
+    <div class="people">
+      <article class="person">
+        <img src="foto-nursafaq.jpg" alt="Moch Nursafaq" loading="lazy">
+        <div>
+          <div class="role">Founder</div>
+          <h3>Moch Nursafaq #MTCINE</h3>
+          <p>Inisiator utama ITEC dengan keahlian di Computer Networking dan Network Security. Membangun ekosistem belajar yang suportif bagi generasi IT Indonesia.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="foto-adelwin.jpg" alt="Adelwin Nugroho Liandy" loading="lazy">
+        <div>
+          <div class="role">Co-Founder</div>
+          <h3>Adelwin Nugroho Liandy</h3>
+          <p>Fokus pada integrasi sistem platform, strategi kurikulum, pengembangan komunitas, dan kerja sama dengan praktisi teknologi.</p>
+        </div>
+      </article>
     </div>
-    <p class="join-note fade-in">Gratis · Tidak perlu akun · Langsung aktif</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+<section class="join" id="gabung">
+  <div class="wrap">
+    <div>
+      <h2>Siap jadi bagian dari ITEC?</h2>
+      <p>Gratis dan tidak perlu akun. Pilih platform yang paling nyaman, lalu langsung ngobrol dengan anggota dari seluruh Indonesia.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-main" href="https://chat.whatsapp.com/KBejc9isPiYHQfjhAVfVUH" target="_blank" rel="noopener">Gabung lewat WhatsApp</a>
+      <a class="btn btn-line" href="https://t.me/IT_enthusiast_Community" target="_blank" rel="noopener">Gabung lewat Telegram</a>
+    </div>
+  </div>
+</section>
+</main>
+
 <footer>
-  <div class="footer-logo">IT Enthusiast Community</div>
-  <ul class="footer-links">
-    <li><a href="#about">Tentang</a></li>
-    <li><a href="#divisi">Divisi</a></li>
-    <li><a href="#kegiatan">Kegiatan</a></li>
-    <li><a href="#course">Course</a></li>
-    <li><a href="#materi">Materi</a></li>
-    <li><a href="#merch">Merch</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 IT Enthusiast Community · Semua kalangan welcome</div>
+  <div class="wrap">
+    <span>© 2026 IT Enthusiast Community</span>
+    <span>Semua kalangan boleh bergabung.</span>
+  </div>
 </footer>
 
 <script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const btn = document.getElementById('hamburger');
-    menu.classList.toggle('open');
-    btn.classList.toggle('open');
+(function(){
+  var root=document.documentElement,btn=document.getElementById('mode');
+  try{var saved=localStorage.getItem('itec-theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('itec-theme',next);}catch(e){}
+  });
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var p=document.querySelector('.packet');if(p)p.remove();
   }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-  }
-
-  // Dark Mode Functionality
-  function toggleTheme() {
-    const htmlEl = document.documentElement;
-    const isDark = htmlEl.classList.toggle('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    updateThemeIcon(isDark);
-  }
-
-  function updateThemeIcon(isDark) {
-    const icons = document.querySelectorAll('.theme-icon');
-    icons.forEach(icon => {
-      icon.textContent = isDark ? '☀️' : '🌙';
-    });
-  }
-
-  // Initialize theme icon state on load
-  (function initThemeIcon() {
-    const isDark = document.documentElement.classList.contains('dark-theme');
-    updateThemeIcon(isDark);
-  })();
+})();
 </script>
-
 </body>
 </html>
